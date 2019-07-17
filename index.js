@@ -52,7 +52,7 @@ function bsCard(src, title, desc, tags = '', link = '') {
 
     return $(`
         <div class="card mx-auto mb-5">
-            <video controls>
+            <video controls class="embed-responsive embed-responsive-16by9">
                 <source src="${src}" type="video/mp4">
                 Your browser does not support the video tag :-(
             </video>
@@ -183,4 +183,5 @@ function bsCard(src, title, desc, tags = '', link = '') {
         'C++ Modern-OpenGL GLSL')
     );
 
+    document.body.removeAttribute('hidden');
 })()

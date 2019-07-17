@@ -9,6 +9,10 @@
 }
 
 /* Tags */
+html, body {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   color: var(--color);
@@ -20,7 +24,8 @@ h2 {
   font-family: 'Pacifico', cursive;
 }
 video {
-  width: 480px;
+  width: inherit;
+  /* width: 480px; */
 }
 .classic-link, .classic-link:hover, .classic-link:visited, .classic-link:active {
   color: inherit;
@@ -35,7 +40,7 @@ a, a:hover, a:visited, a:active {
 /* BS4 Modifications */
 .card {
   display: block;
-  width: 30rem;
+  /* width: 30rem; */
   border: none;
   background-color: rgba(0,0,0,0);
 }
