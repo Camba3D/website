@@ -2,18 +2,19 @@
   --color-light: #ffffff;
   --color-dark: #003f3f;
 
-  --color: #ffffff;
-  --color-alt: #003f3f;
+  --color-alt: #ffffff;
+  --color: #003f3f;
 
   --faicon-size: 30px;
 }
 
+
 /* Tags */
+
 html, body {
   margin: 0;
   padding: 0;
 }
-
 body {
   color: var(--color);
   transition: all 0.35s !important;
@@ -23,28 +24,29 @@ body {
 h2 {
   font-family: 'Pacifico', cursive;
 }
-video {
-  width: inherit;
-  /* width: 480px; */
+iframe {
+  border: none;
+  outline: none;
+}
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
 }
 .classic-link, .classic-link:hover, .classic-link:visited, .classic-link:active {
   color: inherit;
   font-weight: bold;
   font-style: italic;
 }
-a, a:hover, a:visited, a:active {
-  color: inherit;
-  text-decoration: none;
-}
+
 
 /* BS4 Modifications */
+
 .card {
   display: block;
-  /* width: 30rem; */
   border: none;
   background-color: rgba(0,0,0,0);
 }
-.card >video {
+.card >.video {
   border-radius: 15px;
 }
 .card-body {
@@ -57,6 +59,7 @@ a, a:hover, a:visited, a:active {
     word-wrap: break-word;
 }
 
+
 /* Over Header */
 
 #themeBtn {
@@ -66,8 +69,8 @@ a, a:hover, a:visited, a:active {
   background-color: var(--color-at);
 }
 #themeBtn:hover {
-  color: var(--color-alt);
-  background-color: var(--color);
+  color: var(--color);
+  background-color: var(--color-alt);
 }
 
 
@@ -90,7 +93,9 @@ a, a:hover, a:visited, a:active {
   margin-top: -10px;
 }
 
+
 /* Body */
+
 .tags {
   margin-bottom: 10px;
 }
@@ -99,6 +104,7 @@ a, a:hover, a:visited, a:active {
   color: var(--color-alt);
   background-color: var(--color);
 }
+
 
 /* Cool things */
 
