@@ -47,7 +47,7 @@ function bsCard(ytID, title, desc, tags = '', link = '') {
 
     let linkStr = ''
     linkStr = (link !== '')
-        ? `<a href="${link}"> <i class="fas fa-external-link-alt"></i> </a>`
+        ? `<a href="${link}" target="_blank"> <i class="fas fa-external-link-alt"></i> </a>`
         : '';
 
     return $(`
