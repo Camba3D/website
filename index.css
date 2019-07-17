@@ -1,0 +1,109 @@
+:root {
+  --color-light: #ffffff;
+  --color-dark: #003f3f;
+
+  --color: #ffffff;
+  --color-alt: #003f3f;
+
+  --faicon-size: 30px;
+}
+
+/* Tags */
+
+body {
+  color: var(--color);
+  transition: all 0.35s !important;
+  background-color: var(--color-alt);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h2 {
+  font-family: 'Pacifico', cursive;
+}
+video {
+  width: 480px;
+}
+.classic-link, .classic-link:hover, .classic-link:visited, .classic-link:active {
+  color: inherit;
+  font-weight: bold;
+  font-style: italic;
+}
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* BS4 Modifications */
+.card {
+  display: block;
+  width: 30rem;
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+.card >video {
+  border-radius: 15px;
+}
+.card-body {
+  border-radius: 15px;
+  margin-top: 7.5px;
+  color: var(--color);
+  border: 3px solid var(--color);
+}
+.card-text {
+    word-wrap: break-word;
+}
+
+/* Over Header */
+
+#themeBtn {
+  border: none;
+  margin-top: 10px;
+  color: var(--color);
+  background-color: var(--color-at);
+}
+#themeBtn:hover {
+  color: var(--color-alt);
+  background-color: var(--color);
+}
+
+
+/* Header */
+
+.logo {
+  height: 250px;
+}
+.name {
+  font-family: 'Pacifico', cursive;
+}
+.faicon {
+  font-size: var(--faicon-size);
+}
+.slash {
+  font-size: calc(var(--faicon-size) + 10px);
+}
+.about {
+  border: none;
+  margin-top: -10px;
+}
+
+/* Body */
+.tags {
+  margin-bottom: 10px;
+}
+.tags >span {
+  margin-right: 10px;
+  color: var(--color-alt);
+  background-color: var(--color);
+}
+
+/* Cool things */
+
+.emphasis, .emphasis:hover, .emphasis:visited, .emphasis:active {
+  background-color: var(--color) !important;
+  color: var(--color-alt) !important;
+  padding: 0 5px 0 5px;
+  border-radius: 2.5px;
+  font-weight: bold;
+}
+.classic-link.emphasis {
+  padding: 0 7.5px 0 5px;
+}
