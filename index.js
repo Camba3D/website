@@ -69,10 +69,11 @@ function bsCard(ytID, title, desc, tags = '', link = '') {
 //
 
 (function () {
-
     // THEME
 
     let theme = storage.get('theme');
+    if (!theme || theme === '') { theme = 'clear' };
+
     let themeSetup = function () {
         let btns = $('#themeBtn').children();
         if (theme === 'clear') {
