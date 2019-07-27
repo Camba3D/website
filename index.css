@@ -92,8 +92,19 @@ a, a:hover, a:visited, a:active {
   border: none;
   margin-top: -10px;
 }
+.pill-btn, .pill-btn:visited {
+  font-weight: bold;
+  padding: 5px 15px;
+  margin-right: 15px;
+  color: var(--color-alt);
+  background: var(--color);
+  border: none;
 
-
+}
+.pill-btn:hover{
+  color: var(--color-alt);
+  background: #a0afaf;
+}
 /* Body */
 
 .tags {
