@@ -63,12 +63,26 @@ function bsCard(ytID, title, desc, tags = '', link = '') {
         </div>`)[0];
 }
 
+// https://jsperf.com/birthday-calculation/33
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
 
 //
 // MAIN
 //
 
 (function () {
+
+    $('#years').text(getAge('1993-05-02'))
+
     // THEME
 
     let theme = storage.get('theme');

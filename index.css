@@ -34,14 +34,16 @@ a, a:hover, a:visited, a:active {
 }
 .classic-link, .classic-link:hover, .classic-link:visited, .classic-link:active {
   color: inherit;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-style: italic;
+  text-decoration: underline;
 }
 
 
 /* BS4 Modifications */
 
 .card {
+  /* width: 50%; */
   display: block;
   border: none;
   background-color: rgba(0,0,0,0);
@@ -128,4 +130,13 @@ a, a:hover, a:visited, a:active {
 }
 .classic-link.emphasis {
   padding: 0 7.5px 0 5px;
+}
+
+pre {
+  width: 100;
+  text-align: justify;
+  color: var(--color);
+  font-size: 115%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  white-space: pre-line;
 }
