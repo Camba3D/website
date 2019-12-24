@@ -24,7 +24,7 @@ html, body {
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 a{
     text-decoration: none;
@@ -69,7 +69,6 @@ header-cover, header-bottom {
 header-top {
     grid-area: header-top;
     font-size: 1.25em;
-    /* justify-content: left; */
 }
 header-bottom {
     grid-area: header-bottom;
@@ -145,15 +144,17 @@ main-content {
     grid-area: main-content;
 }
 main-content p {
-    padding: 2em 2em;
+    padding: 1.5em;
     font-size: 1.25rem;
     text-align: justify;
 }
 main-grid-title {
     grid-area: main-grid-title;
+    height: 5vh;
 }
 main-grid-content {
     grid-area: main-grid-content;
+    height: 95vh;
 }
 main {
     height: 100vh;
@@ -171,6 +172,9 @@ main {
 .about-me {
     font-size: 110%;
 }
+.about-me a {
+    text-decoration: underline;
+}
 .about-me .chat {
     font-weight: 400;
 }
@@ -178,21 +182,12 @@ main {
     font-weight: 700;
 }
 
-.highlight{
-    /* font-size: 1.25em; */
-    transform: r;
-    color: var(--color-dark);
-    background-color: #f3f4f4DD;
-    padding: 0 .5em;
-    margin: 0 .15em;
-    border-radius: 5px;
-}
-
 /* THRID SECTION */
 
 reel-grid {
-    height: 75vh;
+    height: 95%;
     padding: 1.25% 1.25%;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1.25%;
