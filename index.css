@@ -203,6 +203,8 @@ reel-grid {
 
 .video {
     position: relative;
+    background-color: black;
+    border-radius: 15px;
 }
 
 .video-thumb {
@@ -231,7 +233,6 @@ reel-grid {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
-
 }
 .video:hover .video-description {
     opacity: 1;
@@ -247,7 +248,6 @@ reel-grid {
     padding: 0 5%;
     font-size: 75%;
     text-align: justify;
-
 }
 
 /* MOBILE VARIATIONS */
@@ -289,5 +289,13 @@ reel-grid {
     }
     .video-description-content {
         display: none;
+    }
+    .video-description-title{
+        font-weight: 400;
+        font-size: 100%;
+    }
+    .video-description a {
+        margin: 0 5%;
+        font-size: 100%;
     }
 }
