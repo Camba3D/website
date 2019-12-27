@@ -1,12 +1,55 @@
+const sections = [
+    '#header',
+    '#about',
+    '#portfolio',
+    '#last-section',
+];
+
+function onScroll() {
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+    const offset = 30;
+    for (let i = 0; i < sections.length - 1; i++) {
+        const val = sections[i];
+        const changeHash =
+            (val !== window.location.hash) &&
+            $(val).offset().top < scrollPos + offset &&
+            $(val).offset().top + $(val).height() > scrollPos + offset;
+
+        if (changeHash) {
+            window.history.pushState({}, "", val);
+        }
+    }
+
+    (scrollPos > 350) ? $('.top-btn').fadeIn(300) : $('.top-btn').fadeOut(300);
+    (scrollPos > 350) ? $('.img-as-bg').fadeIn(300) : $('.img-as-bg').fadeOut(300);
+}
+
+function jqueryBtnScrollSmooth(btnID, sectionID) {
+    $(btnID).click(() => {
+        $('html,body').animate({ scrollTop: $(sectionID).offset().top }, 'slow');
+        window.history.pushState({}, "", sectionID);
+    });
+}
+
+function isChrome() {
+    return /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
+}
+
 $(document).ready(() => {
 
-    // Set behaviour to auto scroll from header to content
-    $('#btnHeaderDown').click(() => {
-        $('html,body').animate(
-            { scrollTop: $('main').offset().top },
-            'slow'
-        );
-    });
+    onScroll(); $(window).scroll(onScroll);
+
+    if (!isChrome()) {
+        jqueryBtnScrollSmooth("#btn-about", "#about");
+        jqueryBtnScrollSmooth("#btn-portfolio", "#portfolio");
+        jqueryBtnScrollSmooth(".top-btn", "#header");
+    } else {
+        $("html").addClass("smooth-scroll");
+        $(".top-btn").attr("href", "#header");
+        $("#btn-about").attr("href", "#about");
+        $("#btn-portfolio").attr("href", "#portfolio");
+    }
 
     // Populate thumbs with links and info
     $('video-container').each((_, e) => {
@@ -20,10 +63,11 @@ $(document).ready(() => {
         const vidTitle = $(e).attr("vidTitle") || "";
         const vidDesc = $(e).attr("vidDesc") || "";
 
-        let mainDiv = $("<div>")
+        let mainDiv = $("<div>").addClass("video-description");
+        let iconSection = $("<section>").addClass("video-links");
 
         if (ytID && ytID !== "") {
-            $(mainDiv).addClass("video-description").append($("<a>")
+            $(iconSection).append($("<a>")
                 .attr("href", `https://www.youtube.com/watch?v=${ytID}`)
                 .attr("target", "_blank").append(
                     $('<i class="fab fa-youtube    "></i>')
@@ -32,12 +76,16 @@ $(document).ready(() => {
         }
 
         if (gitRepo && gitRepo !== "") {
-            $(mainDiv).append($("<a>")
+            $(iconSection).append($("<a>")
                 .attr("href", `${gitRepo}`)
                 .attr("target", "_blank").append(
                     $('<i class="fab fa-github    "></i>')
                 )
             )
+        }
+
+        if ((ytID && ytID !== "") || (gitRepo && gitRepo !== "")) {
+            $(mainDiv).append(iconSection);
         }
 
         $(mainDiv)
@@ -67,19 +115,4 @@ $(document).ready(() => {
             )
             .append(mainDiv);
     });
-
-    // $('.videoFHD').each((_, e) => {
-    //     e.append(getImg(
-    //         `img_${e.id}`,
-    //         `Thumb of video ${e.id}`,
-    //         `https://img.youtube.com/vi/${e.id}/maxresdefault.jpg`
-    //     ));
-    // });
-    // $('.videoHD').each((_, e) => {
-    //     e.append(getImg(
-    //         `img_${e.id}`,
-    //         `Thumb of video ${e.id}`,
-    //         `https://img.youtube.com/vi/${e.id}/hqdefault.jpg`
-    //     ));
-    // });
 });

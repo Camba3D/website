@@ -19,7 +19,7 @@
     <!-- SEO -->
     <title>Daniel Camba - Personal portfolio - C++ OpenGL Python Tech and Coffee</title>
     <meta keywords="daniel camba lamas cambalamas cpp c++ graphics games videogames restful rest api opengl python golang low-level know-how multithreading 3D render renderization game-engine">
-    <meta name="description" content="My name is Daniel Camba. I am a passionate Software Engineer with academic and professional experience. Focused on deep know-how of C++, advocate of clean-code, TDD, renderization and visual stuff.">
+    <meta name="description" content="A passionate Software Engineer with academic and professional experience. Focused on deep know-how of C++, advocate of clean-code, TDD, renderization and visual stuff.">
 
     <!-- Content setup -->
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -55,194 +55,222 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400&display=swap" rel="stylesheet">
 
     <!-- Own code -->
-    <link rel="stylesheet" href="index.css?v=0.0.1">
-    <script defer src="index.js?v=0.0.1"></script>
+    <link rel="stylesheet" href="/index.css?v=0.0.2">
+    <script defer src="/index.js?v=0.0.2"></script>
 </head>
 
 <body>
 
-    <header>
-
-        <header-top>
-            <h1>
-                <p class="logo-container">
-                    <img src="assets/img/logo/dark.png" class="logo" alt="Daniel's Imagotype">
-                    <a class="thin">aniel</a>
-                </p>
-            </h1>
-        </header-top>
-
-        <header-right class="icon-container">
+    <header id="header">
+        <img src="/assets/img/logo/dark.png" class="logo" alt="Daniel's imagotype">
+        <h1 class="thinnest">Daniel Camba</h1>
+        <p class="subhead">Software engineer, C++ and 3D enthusiast.</p>
+        <section class="nav">
+            <a id="btn-about"><button>About me</button></a>
+            <a id="btn-portfolio"><button>Portfolio</button></a>
+        </section>
+        <div class="nav-links">
             <a href="https://www.instagram.com/cambalamas/" target="_blank">
-                <i class="fab fa-instagram    "></i>
-            </a>
-            <a href="https://gitlab.com/users/cambalamas/projects" target="_blank">
-                <i class="fab fa-gitlab"></i>
-            </a>
-            <a href="https://www.github.com/cambalamas/" target="_blank">
-                <i class="fab fa-github"></i>
+                <button><i class="fab fa-instagram    "></i></button>
             </a>
             <a href="https://twitter.com/cambalamas" target="_blank">
-                <i class="fab fa-twitter    "></i>
+                <button><i class="fab fa-twitter    "></i></button>
             </a>
-        </header-right>
-
-        <header-left class="icon-container">
+            <a href="https://gitlab.com/users/cambalamas/projects" target="_blank">
+                <button><i class="fab fa-gitlab"></i></button>
+            </a>
+            <a href="https://www.github.com/cambalamas/" target="_blank">
+                <button><i class="fab fa-github"></i></button>
+            </a>
+            <br>
             <a href="https://www.linkedin.com/in/cambalamas/" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
+                <button><i class="fab fa-linkedin-in"></i></button>
             </a>
-            <a href="assets/docs/Resume_DanielCamba.pdf" target="_blank">
-                <i class="fas fa-file-alt"></i>
+            <a href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">
+                <button><i class="fas fa-file-alt"></i></button>
             </a>
             <a href="mailto:hello@cambalamas.com" target="_blank">
-                <i class="fas fa-envelope    "></i>
+                <button><i class="fas fa-envelope    "></i></button>
             </a>
-        </header-left>
-
-        <header-bottom>
-            <a class="thin">Discover more about me and my work</a>
-            <button id="btnHeaderDown">
-                <i class="fas fa-angle-double-down"></i>
-            </button>
-        </header-bottom>
-
-        <header-cover></header-cover>
-
+        </div>
     </header>
-
 
     <main>
 
-        <main-title class="even-section">
+        <a class="top-btn">
+            <button class="round-square-btn">
+                <i class="fas fa-angle-double-up    "></i>
+            </button>
+        </a>
+
+        <img src="/assets/img/logo/dark.png" class="img-as-bg">
+
+
+        <section class="first" id="about">
             <h2>About me</h2>
-        </main-title>
+            <section>
+                <p class="about">
+                    My name is Daniel Camba. I am a passionate Software Development Engineer with <a href="https://link.springer.com/chapter/10.1007%2F978-3-030-31635-8_123" target="_blank">academic</a> and professional experience in backend development as well as low-level tasks like: computer-graphics, memory-management, multithreading apps, used to create tools focused on final user.
+                    <br><br>
+                    I achieve improvements on companies workflows, reducing one-week tasks to around two-days tasks and led the migration from a monolithic system to a RESTful based one, saving in 75% code to maintain.
+                    <br><br>
+                    At this life-moment I am focused on deep know-how of C++ latest standard features as well as its idioms, good use of STL and learning how everything works under-the-hood. I'm also an advocate of clean-code, TDD, process automation, renderization and visual stuff.
+                    <br><br>
+                    With experience as solo-dev and as part of differents and multidisciplinary teams I always give my best on each assigned - <i>or self suggested</i> - task. Hence I would be a good asset for many kinds of companies, probably yours will be a good example.
+                    <br><br>
+                    Take a look into <a href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">my resume</a> and <a href="mailto:hello@cambalamas.com" class="chat">let’s chat about professional opportunities</a>.
 
-        <main-content class="even-section">
-            <p class="thinnest about-me">
-                My name is Daniel Camba. I am a passionate Software Development Engineer with <a href="https://link.springer.com/chapter/10.1007%2F978-3-030-31635-8_123" target="_blank">academic</a> and professional experience in backend development as well as low-level tasks like: computer-graphics, memory-management, multithreading apps, used to create tools focused on final user.
-                <br><br>
-                I achieve improvements on companies workflows, reducing one-week tasks to around two-days tasks and led the migration from a monolithic system to a RESTful based one, saving in 75% code to maintain.
-                <br><br>
-                At this life-moment I am focused on deep know-how of C++ latest standard features as well as its idioms, good use of STL and learning how everything works under-the-hood. I'm also an advocate of clean-code, TDD, process automation, renderization and visual stuff.
-                <br><br>
-                With experience as solo-dev and as part of differents and multidisciplinary teams I always give my best on each assigned - <i>or self suggested</i> - task. Hence I would be a good asset for many kinds of companies, probably yours will be a good example, <a href="mailto:hello@cambalamas.com" class="chat">let’s chat</a> about professional opportunities.
-            </p>
-        </main-content>
+                </p>
+            </section>
+        </section>
 
-        <main-grid-title class="odd-section">
-            <h2>My work</h2>
-        </main-grid-title>
+        <section class="second" id="portfolio">
+            <h2>Portfolio</h2>
+            <section>
+                <p class="reel">
 
-        <main-grid-content class="odd-section">
-            <reel-grid>
-                <video-container
-                    ytQ="FHD"
-                    ytID="oZhsqQzcz48"
-                    gitRepo="https://github.com/cambalamas/imog"
-                    vidTitle="Interactive Motion Graph"
-                    vidDesc="C++17 OpenGL4 wrapper with parsers for OBJ and BVH files and support for skeleton animation and interaction graph-based, generating transitions between graph nodes by interpolating the joint rotation.">
-                </video-container>
+                    <!-- ******************** / videos ********************* -->
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="2Z41U9yh7K0"
-                    gitRepo="https://gitlab.com/cambalamas/DontPaintMe"
-                    vidTitle="Don't paint me!"
-                    vidDesc="A game about paint NPCs quicker than your rival, the game has difficult levels, path decission, explore curves and interpolation concepts and it's fun for a break. All objects modeled and rigged using 3DMax.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="oZhsqQzcz48"
+                        gitRepo="https://github.com/cambalamas/imog"
+                        vidTitle="Interactive Motion Graph"
+                        vidDesc="C++17 OpenGL4 wrapper with parsers for OBJ and BVH files and support for skeleton animation and interaction graph-based, generating transitions between graph nodes by interpolating the joint rotation.">
+                    </video-container>
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="XWu2WUpjcoI"
-                    gitRepo="https://gitlab.com/cambalamas/Catch_ed"
-                    vidTitle="Catched!"
-                    vidDesc="A non-interactive game to explore AI based on decision trees with safe areas, targets and power-ups.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="2Z41U9yh7K0"
+                        gitRepo="https://gitlab.com/cambalamas/DontPaintMe"
+                        vidTitle="Don't paint me!"
+                        vidDesc="Paint NPCs quicker than your rival, the game has difficult levels, path decission, explore curves and interpolation concepts and it's fun for a break. All objects modeled and rigged using 3DMax.">
+                    </video-container>
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="zk0RkSM18Fk"
-                    gitRepo="https://gitlab.com/cambalamas/PrjoectGrimoire"
-                    vidTitle="Grimoire"
-                    vidDesc="An interactive Hack'n'Slash game with melee and range combat and subsytems for: crowd management, waves and difficulty grading. Making our best to follow game feel patterns and a great exercise to improve team work skills.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="XWu2WUpjcoI"
+                        gitRepo="https://gitlab.com/cambalamas/Catch_ed"
+                        vidTitle="Catched!"
+                        vidDesc="A non-interactive game to explore AI based on decision trees with safe areas, targets and power-ups.">
+                    </video-container>
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="kSXYslrRbvY"
-                    vidTitle="Handmade cloth simulation"
-                    vidDesc="Physics made without Unity Physics to simulate cloth and its interaction with a mouse-managed gravity">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="zk0RkSM18Fk"
+                        gitRepo="https://gitlab.com/cambalamas/PrjoectGrimoire"
+                        vidTitle="Grimoire"
+                        vidDesc="An interactive Hack'n'Slash game with melee and range combat and subsytems for: crowd management, waves and difficulty grading. Following game feel patterns and a great exercise to improve team work skills.">
+                    </video-container>
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="IwkHQ_bOhfE"
-                    gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/terrain.glsl"
-                    vidTitle="Procedural terrain with dynamic tessellation"
-                    vidDesc="Octaves and elevation control with LOD (Level of detail) based on camera distance and camera interaction using mouse and keyboard.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="kSXYslrRbvY"
+                        vidTitle="Handmade cloth simulation"
+                        vidDesc="Physics made without Unity Physics to simulate cloth and its interaction with a mouse-managed gravity.">
+                    </video-container>
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="scc9yg8-pU8"
-                    gitRepo="https://gitlab.com/cambalamas/openGL_and_glsl/blob/master/P4/shaders_P4/postProcessing.v1.frag"
-                    vidTitle="Convolution filters OpenGL4"
-                    vidDesc="C++14 setup and OpenGL4 shaders for apply convolution filters on 3D meshes using Deferred Shading.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="IwkHQ_bOhfE"
+                        gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/terrain.glsl"
+                        vidTitle="Procedural terrain with LOD"
+                        vidDesc="Octaves and elevation control with LOD (Level of detail) based on camera distance and camera interaction using mouse and keyboard.">
+                    </video-container>
 
-                <video-container
-                    ytQ="FHD"
-                    ytID="ICD4tvXNdaE"
-                    vidTitle="VR Off-Axis tracking interaction"
-                    vidDesc="VR context demo exploring off-axis perspective projection and tracking interaction based on pattern detection.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="scc9yg8-pU8"
+                        gitRepo="https://gitlab.com/cambalamas/openGL_and_glsl/blob/master/P4/shaders_P4/postProcessing.v1.frag"
+                        vidTitle="Convolution filters OpenGL4"
+                        vidDesc="C++14 setup and OpenGL4 shaders for apply convolution filters on 3D meshes using Deferred Shading.">
+                    </video-container>
 
-                <video-container
-                    ytQ="HD"
-                    ytID="3ADj3hj1kR0"
-                    gitRepo="https://gitlab.com/cambalamas/migjrv_AC/"
-                    vidTitle="Matlab 2D-IK"
-                    vidDesc="Inverse kinematic on 2D skeleton on matlab env.">
-                </video-container>
+                    <video-container
+                        ytQ="FHD"
+                        ytID="ICD4tvXNdaE"
+                        vidTitle="VR Off-Axis tracking"
+                        vidDesc="VR context demo exploring off-axis perspective projection and tracking interaction based on pattern detection.">
+                    </video-container>
 
-                <video-container
-                    ytQ="HD"
-                    ytID="qEVfovJ2z2s"
-                    gitRepo="https://gitlab.com/cambalamas/PrjoectGrimoire"
-                    vidTitle="Exploring Unity's mask animation system "
-                    vidDesc="Masking upper-body of attack animation and lower-body of run animation.">
-                </video-container>
+                    <video-container
+                        ytQ="HD"
+                        ytID="3ADj3hj1kR0"
+                        gitRepo="https://gitlab.com/cambalamas/migjrv_AC/"
+                        vidTitle="Matlab 2D-IK"
+                        vidDesc="Inverse kinematic on 2D skeleton on matlab env.">
+                    </video-container>
 
-                <video-container
-                    ytQ="HD"
-                    ytID="vnnRPrnEVkE"
-                    gitRepo="https://github.com/cambalamas/prototypist"
-                    vidTitle="Prototypist"
-                    vidDesc="Interactive mockup definition tool to prototype the behaviour of an application for a better customer's understanding of the final product.">
-                </video-container>
+                    <video-container
+                        ytQ="HD"
+                        ytID="qEVfovJ2z2s"
+                        gitRepo="https://gitlab.com/cambalamas/PrjoectGrimoire"
+                        vidTitle="Exploring Unity's mask animation"
+                        vidDesc="Masking upper-body of attack animation and lower-body of run animation.">
+                    </video-container>
 
-                <video-container
-                    ytQ="HD"
-                    ytID="dIHax1Nmo8I"
-                    gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/water.glsl"
-                    vidTitle="Naive water shader"
-                    vidDesc="Simulate water waves mixing two perlin noises on my own engine.">
-                </video-container>
+                    <video-container
+                        ytQ="HD"
+                        ytID="vnnRPrnEVkE"
+                        gitRepo="https://github.com/cambalamas/prototypist"
+                        vidTitle="Prototypist"
+                        vidDesc="Interactive mockup definition tool to prototype the behaviour of an application for a better customer's understanding of the final product.">
+                    </video-container>
 
-                <video-container
-                    ytQ="HD"
-                    ytID="z7ZDNZHLlF4"
-                    gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/geometry/explode.glsl"
-                    vidTitle="Exploring geometry shaders"
-                    vidDesc="Explode effect pushing quads in the direction of normals using OpenGL4 and C++">
-                </video-container>
+                    <video-container
+                        ytQ="HD"
+                        ytID="dIHax1Nmo8I"
+                        gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/water.glsl"
+                        vidTitle="Naive water shader"
+                        vidDesc="Simulate water waves mixing two perlin noises on my own engine.">
+                    </video-container>
 
-            </reel-grid>
-        </main-grid-content>
+                    <!-- <video-container
+                        ytQ="HD"
+                        ytID="z7ZDNZHLlF4"
+                        gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/geometry/explode.glsl"
+                        vidTitle="Exploring geometry shaders"
+                        vidDesc="Explode effect pushing quads in the direction of normals using OpenGL4 and C++.">
+                    </video-container> -->
 
+                    <!-- ******************** / videos ********************* -->
+
+                </p>
+            </section>
+        </section>
+
+        <section class="third" id="last-section">
+            <h3>Daniel Camba Lamas</h3>
+            <small>Made with ♥️ from Spain.</small>
+            <span class="sep">-</span>
+            <div class="nav-links">
+                <a href="https://www.instagram.com/cambalamas/" target="_blank">
+                    <button><i class="fab fa-instagram    "></i></button>
+                </a>
+                <a href="https://twitter.com/cambalamas" target="_blank">
+                    <button><i class="fab fa-twitter    "></i></button>
+                </a>
+                <a href="https://gitlab.com/users/cambalamas/projects" target="_blank">
+                    <button><i class="fab fa-gitlab"></i></button>
+                </a>
+                <a href="https://www.github.com/cambalamas/" target="_blank">
+                    <button><i class="fab fa-github"></i></button>
+                </a>
+                <br>
+                <a href="https://www.linkedin.com/in/cambalamas/" target="_blank">
+                    <button><i class="fab fa-linkedin-in"></i></button>
+                </a>
+                <a href="assets/docs/Resume_DanielCamba.pdf" target="_blank">
+                    <button><i class="fas fa-file-alt"></i></button>
+                </a>
+                <a href="mailto:hello@cambalamas.com" target="_blank">
+                    <button><i class="fas fa-envelope    "></i></button>
+                </a>
+            </div>
+        </section>
     </main>
 
 </body>
