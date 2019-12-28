@@ -11,10 +11,6 @@
         gtag('config', 'UA-154917020-1');
     </script>
 
-    <!-- ------ -->
-    <!-- CONFIG -->
-    <!-- ------ -->
-
     <!-- SEO -->
     <title>Daniel Camba | Personal portfolio | C++ OpenGL Python & Coffee</title>
     <meta keywords="daniel camba lamas cambalamas cpp c++ graphics games videogames restful rest api opengl python golang low-level know-how multithreading 3D render renderization game-engine">
@@ -43,69 +39,76 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/android-icon-192x192.png">
 
-    <!-- ------- -->
-    <!-- IMPORTS -->
-    <!-- ------- -->
+    <!-- CSS -->
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Kanit:200,400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit:200,400&display=swap">
+    </noscript>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="preload" href="/assets/fontello.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/fontello.css">
+    </noscript>
 
-    <!-- Font-Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="preload" href="/index.min.css?v=0.0.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/index.min.css?v=0.0.2">
+    </noscript>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Kanit:200,400&display=swap" rel="stylesheet">
+    <!-- JS -->
+    <script src="/assets/yall.min.js"></script>
 
-    <!-- Own code -->
-    <link rel="stylesheet" href="/index.css?v=0.0.2">
-    <script defer src="/index.js?v=0.0.2"></script>
+    <script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script defer>document.addEventListener("DOMContentLoaded", yall);</script>
+    <script defer src="/index.min.js?v=0.0.2"></script>
 </head>
 
 <body>
 
     <header id="header">
-        <img src="/assets/img/logo/dark.png" class="logo" alt="Daniel's imagotype">
+        <img class="lazy logo" data-src="/assets/img/logo.png" alt="Daniel's imagotype">
+
         <h1 class="thinnest">Daniel Camba</h1>
         <p class="subhead">Software engineer, C++ and 3D enthusiast.</p>
         <section class="nav">
             <a id="btn-about"><button>About me</button></a>
             <a id="btn-portfolio"><button>Portfolio</button></a>
         </section>
-        <div class="nav-links">
+        <section class="nav-links">
             <a href="https://www.instagram.com/cambalamas/" target="_blank">
-                <button><i class="fab fa-instagram    "></i></button>
+                <button><i class="icon-instagram"></i></button>
             </a>
             <a href="https://twitter.com/cambalamas" target="_blank">
-                <button><i class="fab fa-twitter    "></i></button>
+                <button><i class="icon-twitter"></i></button>
             </a>
             <a href="https://gitlab.com/users/cambalamas/projects" target="_blank">
-                <button><i class="fab fa-gitlab"></i></button>
+                <button><i class="icon-gitlab"></i></button>
             </a>
             <a href="https://www.github.com/cambalamas/" target="_blank">
-                <button><i class="fab fa-github"></i></button>
+                <button><i class="icon-github-circled"></i></button>
             </a>
             <br>
             <a href="https://www.linkedin.com/in/cambalamas/" target="_blank">
-                <button><i class="fab fa-linkedin-in"></i></button>
+                <button><i class="icon-linkedin"></i></button>
             </a>
             <a href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">
-                <button><i class="fas fa-file-alt"></i></button>
+                <button><i class="icon-doc-text-inv"></i></button>
             </a>
             <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities" target="_blank">
-                <button><i class="fas fa-envelope    "></i></button>
+                <button><i class="icon-mail-alt"></i></button>
             </a>
-        </div>
+            </div>
     </header>
 
     <main>
 
         <a class="top-btn">
             <button class="round-square-btn">
-                <i class="fas fa-angle-double-up    "></i>
+                <i class="icon-up-big"></i>
             </button>
         </a>
 
-        <img src="/assets/img/logo/dark.png" class="img-as-bg">
+        <img class="lazy img-as-bg" data-src="/assets/img/logo.png">
 
 
         <section class="first" id="about">
@@ -245,31 +248,31 @@
             <h3>Daniel Camba Lamas</h3>
             <small>Made with ♥️ from Spain.</small>
             <span class="sep">-</span>
-            <div class="nav-links">
+            <section class="nav-links">
                 <a href="https://www.instagram.com/cambalamas/" target="_blank">
-                    <button><i class="fab fa-instagram    "></i></button>
+                    <button><i class="icon-instagram"></i></button>
                 </a>
                 <a href="https://twitter.com/cambalamas" target="_blank">
-                    <button><i class="fab fa-twitter    "></i></button>
+                    <button><i class="icon-twitter"></i></button>
                 </a>
                 <a href="https://gitlab.com/users/cambalamas/projects" target="_blank">
-                    <button><i class="fab fa-gitlab"></i></button>
+                    <button><i class="icon-gitlab"></i></button>
                 </a>
                 <a href="https://www.github.com/cambalamas/" target="_blank">
-                    <button><i class="fab fa-github"></i></button>
+                    <button><i class="icon-github-circled"></i></button>
                 </a>
                 <br>
                 <a href="https://www.linkedin.com/in/cambalamas/" target="_blank">
-                    <button><i class="fab fa-linkedin-in"></i></button>
+                    <button><i class="icon-linkedin"></i></button>
                 </a>
-                <a href="assets/docs/Resume_DanielCamba.pdf" target="_blank">
-                    <button><i class="fas fa-file-alt"></i></button>
+                <a href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">
+                    <button><i class="icon-doc-text-inv"></i></button>
                 </a>
-                <a href="mailto:hello@cambalamas.com" target="_blank">
-                    <button><i class="fas fa-envelope    "></i></button>
+                <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities" target="_blank">
+                    <button><i class="icon-mail-alt"></i></button>
                 </a>
-            </div>
-        </section>
+                </div>
+            </section>
     </main>
 
 </body>

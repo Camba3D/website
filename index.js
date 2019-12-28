@@ -70,7 +70,7 @@ $(document).ready(() => {
             $(iconSection).append($("<a>")
                 .attr("href", `https://www.youtube.com/watch?v=${ytID}`)
                 .attr("target", "_blank").append(
-                    $('<i class="fab fa-youtube    "></i>')
+                    $('<i class="icon-youtube-play"></i>')
                 )
             );
         }
@@ -79,7 +79,7 @@ $(document).ready(() => {
             $(iconSection).append($("<a>")
                 .attr("href", `${gitRepo}`)
                 .attr("target", "_blank").append(
-                    $('<i class="fab fa-github    "></i>')
+                    $('<i class="icon-github-circled"></i>')
                 )
             )
         }
@@ -106,13 +106,17 @@ $(document).ready(() => {
             .removeAttr("vidDesc")
             .addClass("video")
             .append($("<img>")
+                .addClass("lazy")
                 .attr('id', `img_${ytID}`)
                 .attr('alt', vidTitle)
-                .attr('src', `https://img.youtube.com/vi/${ytID}/` + (
-                    (ytQ === "FHD") ? 'maxresdefault.jpg' : 'hqdefault.jpg'
-                ))
+                // .attr('src', `https://img.youtube.com/vi/${ytID}/` + (
+                //     (ytQ === "FHD") ? 'maxresdefault.jpg' : '0.jpg'
+                // ))
+                .attr('data-src', `https://img.youtube.com/vi/${ytID}/0.jpg`)
                 .addClass("video-thumb")
             )
             .append(mainDiv);
     });
+
+    yall();
 });
