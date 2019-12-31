@@ -50,17 +50,16 @@
         <link rel="stylesheet" href="/assets/fontello.css">
     </noscript>
 
-    <link rel="preload" href="/index.min.css?v=0.0.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/index.css?v=0.0.3" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="/index.min.css?v=0.0.2">
+        <link rel="stylesheet" href="/index.css?v=0.0.3">
     </noscript>
 
     <!-- JS -->
-    <script src="/assets/yall.min.js"></script>
+    <script defer src="/assets/yall.min.js"></script>
 
     <script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script defer>document.addEventListener("DOMContentLoaded", yall);</script>
-    <script defer src="/index.min.js?v=0.0.2"></script>
+    <script defer src="/index.js?v=0.0.3"></script>
 </head>
 
 <body>
@@ -137,7 +136,7 @@
                     <!-- ******************** / videos ********************* -->
 
                     <video-container
-                        ytQ="FHD"
+                        img="/assets/img/thumbnail/imog.png"
                         ytID="oZhsqQzcz48"
                         gitRepo="https://github.com/cambalamas/imog"
                         vidTitle="Interactive Motion Graph"
@@ -145,7 +144,7 @@
                     </video-container>
 
                     <video-container
-                        ytQ="FHD"
+                        img="/assets/img/thumbnail/dontpaintme.png"
                         ytID="2Z41U9yh7K0"
                         gitRepo="https://gitlab.com/cambalamas/DontPaintMe"
                         vidTitle="Don't paint me!"
@@ -153,7 +152,7 @@
                     </video-container>
 
                     <video-container
-                        ytQ="FHD"
+                        img="/assets/img/thumbnail/catched.png"
                         ytID="XWu2WUpjcoI"
                         gitRepo="https://gitlab.com/cambalamas/Catch_ed"
                         vidTitle="Catched!"
@@ -161,7 +160,7 @@
                     </video-container>
 
                     <video-container
-                        ytQ="FHD"
+                        img="/assets/img/thumbnail/grimoire.png"
                         ytID="zk0RkSM18Fk"
                         gitRepo="https://gitlab.com/cambalamas/PrjoectGrimoire"
                         vidTitle="Grimoire"
@@ -169,22 +168,16 @@
                     </video-container>
 
                     <video-container
-                        ytQ="FHD"
-                        ytID="kSXYslrRbvY"
-                        vidTitle="Handmade cloth simulation"
-                        vidDesc="Physics made without Unity Physics to simulate cloth and its interaction with a mouse-managed gravity.">
+                        img="/assets/img/thumbnail/watercolor.png"
+                        ytID="0vYF3mW6pjI"
+                        slides="https://docs.google.com/presentation/d/1b_mIipfW0n6i6JNm-K1dD3sPiq4kaNyXmJ5upyZswfI/edit?usp=sharing"
+                        gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/watercolor/watercolor.glsl"
+                        vidTitle="WaterColor (Deferred GLSL)"
+                        vidDesc="Visualize 3D objects as if it were painted using watercolours using multiple Perlin noises and implementing hand-wobble.">
                     </video-container>
 
                     <video-container
-                        ytQ="FHD"
-                        ytID="IwkHQ_bOhfE"
-                        gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/terrain.glsl"
-                        vidTitle="Procedural terrain with LOD"
-                        vidDesc="Octaves and elevation control with LOD (Level of detail) based on camera distance and camera interaction using mouse and keyboard.">
-                    </video-container>
-
-                    <video-container
-                        ytQ="FHD"
+                        img="/assets/img/thumbnail/convfilter.png"
                         ytID="scc9yg8-pU8"
                         gitRepo="https://gitlab.com/cambalamas/openGL_and_glsl/blob/master/P4/shaders_P4/postProcessing.v1.frag"
                         vidTitle="Convolution filters OpenGL4"
@@ -192,14 +185,29 @@
                     </video-container>
 
                     <video-container
-                        ytQ="FHD"
+                        img="/assets/img/thumbnail/clothsim.png"
+                        ytID="kSXYslrRbvY"
+                        vidTitle="Handmade cloth simulation"
+                        vidDesc="Physics made without Unity Physics to simulate cloth and its interaction with a mouse-managed gravity.">
+                    </video-container>
+
+                    <video-container
+                        img="/assets/img/thumbnail/lodterrain.png"
+                        ytID="IwkHQ_bOhfE"
+                        gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/terrain.glsl"
+                        vidTitle="Procedural terrain with LOD"
+                        vidDesc="Octaves and elevation control with LOD (Level of detail) based on camera distance and camera interaction using mouse and keyboard.">
+                    </video-container>
+
+                    <video-container
+                        img="/assets/img/thumbnail/offaxis.png"
                         ytID="ICD4tvXNdaE"
                         vidTitle="VR Off-Axis tracking"
                         vidDesc="VR context demo exploring off-axis perspective projection and tracking interaction based on pattern detection.">
                     </video-container>
 
                     <video-container
-                        ytQ="HD"
+                        img="/assets/img/thumbnail/ik2d.png"
                         ytID="3ADj3hj1kR0"
                         gitRepo="https://gitlab.com/cambalamas/migjrv_AC/"
                         vidTitle="Matlab 2D-IK"
@@ -207,7 +215,7 @@
                     </video-container>
 
                     <video-container
-                        ytQ="HD"
+                        img="/assets/img/thumbnail/animmask.png"
                         ytID="qEVfovJ2z2s"
                         gitRepo="https://gitlab.com/cambalamas/PrjoectGrimoire"
                         vidTitle="Exploring Unity's mask animation"
@@ -215,7 +223,7 @@
                     </video-container>
 
                     <video-container
-                        ytQ="HD"
+                        img="/assets/img/thumbnail/prototypist.png"
                         ytID="vnnRPrnEVkE"
                         gitRepo="https://github.com/cambalamas/prototypist"
                         vidTitle="Prototypist"
@@ -223,20 +231,20 @@
                     </video-container>
 
                     <video-container
-                        ytQ="HD"
+                        img="/assets/img/thumbnail/naivewater.png"
                         ytID="dIHax1Nmo8I"
                         gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/water.glsl"
                         vidTitle="Naive water shader"
                         vidDesc="Simulate water waves mixing two perlin noises on my own engine.">
                     </video-container>
 
-                    <!-- <video-container
-                        ytQ="HD"
+                    <video-container
+                        img="/assets/img/thumbnail/explode.png"
                         ytID="z7ZDNZHLlF4"
                         gitRepo="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/geometry/explode.glsl"
                         vidTitle="Exploring geometry shaders"
                         vidDesc="Explode effect pushing quads in the direction of normals using OpenGL4 and C++.">
-                    </video-container> -->
+                    </video-container>
 
                     <!-- ******************** / videos ********************* -->
 

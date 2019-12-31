@@ -213,7 +213,7 @@ h2 {
     backface-visibility: hidden;
 
     border-radius: var(--border-radius-def);
-    object-fit:cover;
+    object-fit: cover;
 }
 .video:hover .video-thumb {
     opacity: 0.3;
