@@ -199,8 +199,8 @@ function sendMail() {
     let subject = $('#contact_subject').val();
     let body = $('#contact_body').val();
 
-    if (from === '' || email === '' || subject === '' || body === '') {
-        let emptyInputs = "";
+    if (fromName === '' || from === '' || subject === '' || body === '') {
+        let emptyInputs = "⚠️ ";
         if (fromName === '') { emptyInputs += 'Full name, '; }
         if (from === '') { emptyInputs += 'Email, '; }
         if (subject === '') { emptyInputs += 'Subject, '; }
@@ -209,6 +209,8 @@ function sendMail() {
         msgAlert(emptyInputs, "#F7A859");
         return;
     }
+
+    msgAlert("⏳ Connecting to the server.", "#5E5EBB");
 
     Email.send({
         SecureToken: "02c23bcd-40c2-48f9-9453-fd3a6a1a0cfd",
@@ -220,9 +222,9 @@ function sendMail() {
     }).then(status => {
         console.log(status);
         if (status === 'OK') {
-            msgAlert("Message sent successfully :)", "#5EBB5E");
+            msgAlert("✅ Message sent successfully.", "#5EBB5E");
         } else {
-            msgAlert(status, "#BB5E5E");
+            msgAlert("😕 " + status, "#BB5E5E");
         }
     });
 }
