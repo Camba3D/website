@@ -132,6 +132,7 @@ html, body {
 
     padding: 1em;
     outline:  none;
+    border: 1px dotted rgba(var(--dark),0.35);
     font-size: 1em;
     font-weight: 200;
 }
@@ -142,6 +143,7 @@ html, body {
 
     padding: 1em;
     outline:  none;
+    border: 1px dotted rgba(var(--dark),0.35);
     font-size: 1em;
     font-weight: 200;
 
