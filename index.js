@@ -179,7 +179,7 @@ function populatePortfolio() {
                 .addClass("lazy")
                 .addClass("video-thumb")
                 .attr('alt', vidTitle)
-                .attr('src', '/assets/img/thumbnail/placeholder.png')
+                .attr('src', '/assets/img/thumbnail/placeholder.jpg')
                 .attr('data-src', ((img && img !== "") ? img : `https://img.youtube.com/vi/${ytID}/0.jpg`))
             )
             .append(mainDiv);
@@ -200,7 +200,7 @@ function sendMail() {
     let body = $('#contact_body').val();
 
     if (fromName === '' || from === '' || subject === '' || body === '') {
-        let emptyInputs = "⚠️ ";
+        let emptyInputs = "⚠️ .jpg";
         if (fromName === '') { emptyInputs += 'Full name, '; }
         if (from === '') { emptyInputs += 'Email, '; }
         if (subject === '') { emptyInputs += 'Subject, '; }
