@@ -1,61 +1,122 @@
-function setFades(scrollPos, offsetY, id) {
-    const fadeTime = 300;
 
-    (scrollPos > offsetY)
-        ? $(id).fadeIn(fadeTime)
-        : $(id).fadeOut(fadeTime);
+// ----------------------- //
+// Daniel Camba Lamas
+// <cambalamas@gmail.com>
+// ----------------------- //
+
+// HELPERS
+
+/**
+ * Check the current scroll position using 'window' or 'document' as fallback.
+ */
+function currScrollPos() {
+    return window.pageYOffset || document.documentElement.scrollTop;
 }
 
-function onScroll() {
-    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-
-    const offset = 30;
-    const sections = ['#header', '#about', '#portfolio', '#last-section'];
-
-    for (let i = 0; i < sections.length - 1; i++) {
-        const val = sections[i];
-        const changeHash =
-            (val !== window.location.hash) &&
-            $(val).offset().top < scrollPos + offset &&
-            $(val).offset().top + $(val).height() > scrollPos + offset;
-
-        if (changeHash) {
-            window.history.pushState({}, "", val);
-        }
-    }
-
-    setFades(scrollPos, 350, '.top-btn');
-    setFades(scrollPos, 350, '.img-as-bg');
+/**
+ * Gived a html string generate html nodes
+ */
+function str2html(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
 }
 
-function jqueryBtnScrollSmooth(btnID, sectionID) {
-    $(btnID).click(() => {
-        $('html,body').animate({ scrollTop: $(sectionID).offset().top }, 'slow');
-        window.history.pushState({}, "", sectionID);
-    });
+/**
+ * Pop a message box with a gived text and color
+ */
+function msgAlert(text, color) {
+    $('#msgAlert').stop()
+    $('#msgAlert').css('background-color', color)
+    $('#msgAlert').fadeTo(250, 1);
+    $('#msgAlert').text(text);
+    $('#msgAlert').fadeOut(7500);
 }
 
+// BROWSER HACKS
+
+/**
+ * Use regex over userAgent to check if the browser is Chrome based.
+ */
 function isChrome() {
     return /chrom(e|ium)/.test(navigator.userAgent.toLowerCase());
 }
 
-$(document).ready(() => {
+/**
+ * Link buttons with sections with animation
+ * and update url hash using 'pushState'.
+ */
+function jqueryBtnScrollSmooth(selector, ID) {
+    $(selector).click(() => {
+        $('html,body').animate({ scrollTop: $(ID).offset().top }, 'slow');
+        window.history.pushState({}, "", ID);
+    });
+}
 
-    onScroll();
-    $(window).scroll(onScroll);
-
+/**
+ * Smooth scroll only works on Chrome by default and jQuery bugs its behaviour
+ * in Chrome but allow the effect in the rest of browsers.
+ */
+function activeSmoothScroll() {
     if (!isChrome()) {
-        jqueryBtnScrollSmooth("#btn-about", "#about");
-        jqueryBtnScrollSmooth("#btn-portfolio", "#portfolio");
-        jqueryBtnScrollSmooth(".top-btn", "#header");
+        jqueryBtnScrollSmooth("#btnAbout", "#about");
+        jqueryBtnScrollSmooth("#btnPortfolio", "#portfolio");
+        jqueryBtnScrollSmooth("#btnContact", "#contact");
+        jqueryBtnScrollSmooth("#btnTop", "#header");
     } else {
         $("html").addClass("smooth-scroll");
-        $(".top-btn").attr("href", "#header");
-        $("#btn-about").attr("href", "#about");
-        $("#btn-portfolio").attr("href", "#portfolio");
+        $("#btnAbout").attr("href", "#about");
+        $("#btnPortfolio").attr("href", "#portfolio");
+        $("#btnContact").attr("href", "#contact");
+        $("#btnTop").attr("href", "#header");
     }
+}
 
-    // Populate thumbs with links and info
+
+// SCROLL EVENTS
+
+/**
+ * Set a fadeIn or fadeOut based on current scroll position.
+ */
+function setFade(scrollPosToHide, selector) {
+    const time = 200;
+
+    (currScrollPos() > scrollPosToHide)
+        ? $(selector).fadeIn(time)
+        : $(selector).fadeOut(time);
+}
+
+/**
+ * Append section id to the end of url, allowing to share specific section.
+ */
+function setSectionToURL() {
+
+    const limit = currScrollPos() + 30;
+    const sections = ['#header', '#about', '#portfolio', '#contact', '#footer'];
+
+    for (const se of sections) {
+        if ((se !== window.location.hash) &&
+            $(se).offset().top < limit &&
+            $(se).offset().top + $(se).height() > limit) {
+            window.history.pushState({}, "", se);
+        }
+    }
+}
+
+
+// DOM MANIPULATION
+
+/**
+ * Load imgs when is needed, not before.
+ */
+function lazyLoadImgs() {
+    yall();
+}
+
+/**
+ * For each 'video-container' tag generates desired html from tag's attributes
+ */
+function populatePortfolio() {
     $('video-container').each((_, e) => {
 
         const img = $(e).attr("img") || "";
@@ -66,8 +127,9 @@ $(document).ready(() => {
         const vidDesc = $(e).attr("vidDesc") || "";
         $(e).removeAttr("ytQ ytID slides gitRepo vidTitle vidDesc");
 
+
         // Main elements
-        let mainDiv = $("<div>").addClass("video-description");
+        let mainDiv = $("<div>").addClass("video-description").addClass('flexv');
         let iconSection = $("<section>").addClass("video-links");
 
         // Youtube link and icon
@@ -94,8 +156,8 @@ $(document).ready(() => {
             );
         }
 
-        // If exist 'git' or 'youtube' links append icons section
-        if ((ytID && ytID !== "") || (gitRepo && gitRepo !== "")) {
+        // If exists 'git', 'youtube' or 'slides' links append icons section
+        if ((ytID && ytID !== "") || (gitRepo && gitRepo !== "") || (slides && slides !== "")) {
             $(mainDiv).append(iconSection);
         }
 
@@ -117,10 +179,106 @@ $(document).ready(() => {
                 .addClass("lazy")
                 .addClass("video-thumb")
                 .attr('alt', vidTitle)
+                .attr('src', '/assets/img/thumbnail/placeholder.png')
                 .attr('data-src', ((img && img !== "") ? img : `https://img.youtube.com/vi/${ytID}/0.jpg`))
             )
             .append(mainDiv);
     });
+}
 
-    yall();
+
+// F-BACKEND
+
+/**
+ * Send an email using SmtpJS with your configured SMTP server
+ */
+function sendMail() {
+
+    let fromName = $('#contact_fullname').val();
+    let from = $('#contact_email').val();
+    let subject = $('#contact_subject').val();
+    let body = $('#contact_body').val();
+
+    if (from === '' || email === '' || subject === '' || body === '') {
+        let emptyInputs = "";
+        if (fromName === '') { emptyInputs += 'Full name, '; }
+        if (from === '') { emptyInputs += 'Email, '; }
+        if (subject === '') { emptyInputs += 'Subject, '; }
+        if (body === '') { emptyInputs += 'Message, '; }
+        emptyInputs += 'must not be empty.'
+        msgAlert(emptyInputs, "#F7A859");
+        return;
+    }
+
+    Email.send({
+        SecureToken: "02c23bcd-40c2-48f9-9453-fd3a6a1a0cfd",
+        To: 'hello@cambalamas.com',
+        From: from,
+        FromName: fromName,
+        Subject: subject,
+        Body: body
+    }).then(status => {
+        console.log(status);
+        if (status === 'OK') {
+            msgAlert("Message sent successfully :)", "#5EBB5E");
+        } else {
+            msgAlert(status, "#BB5E5E");
+        }
+    });
+}
+
+// PRE-COMPUTED NODES
+
+const personalLinks = str2html(`
+        <section>
+            <a class="btn-link" href="https://www.instagram.com/cambalamas/" target="_blank">
+                <i class="icon-instagram"></i>
+            </a>
+            <a class="btn-link" href="https://twitter.com/cambalamas" target="_blank">
+                <i class="icon-twitter"></i>
+            </a>
+            <a class="btn-link" href="https://gitlab.com/users/cambalamas/projects" target="_blank">
+                <i class="icon-gitlab"></i>
+            </a>
+            <a class="btn-link" href="https://www.github.com/cambalamas/" target="_blank">
+                <i class="icon-github-circled"></i>
+            </a>
+        </section>
+
+        <section>
+            <a class="btn-link" href="https://www.linkedin.com/in/cambalamas/" target="_blank">
+                <i class="icon-linkedin"></i>
+            </a>
+            <a class="btn-link" href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">
+                <i class="icon-doc-text-inv"></i>
+            </a>
+            <a class="btn-link" href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities" target="_blank">
+                <i class="icon-mail-alt"></i>
+            </a>
+        </section>
+    `);
+
+
+//
+//
+//
+// ON DOC READY
+
+$(document).ready(() => {
+
+    $('.personal-links').append(personalLinks);
+
+    $('#submitContact').click(sendMail);
+
+    const scrollEvents = [
+        setSectionToURL,
+        _ => setFade(100, '#btnTop'),
+    ];
+    for (const sEv of scrollEvents) { sEv(); }
+    for (const sEv of scrollEvents) { $(window).scroll(sEv); }
+
+    activeSmoothScroll();
+    populatePortfolio();
+    lazyLoadImgs();
+
 });
