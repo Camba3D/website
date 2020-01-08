@@ -25,12 +25,14 @@ function str2html(html) {
 /**
  * Pop a message box with a gived text and color
  */
-function msgAlert(text, color) {
+function msgAlert(text, color, hide = true) {
     $('#msgAlert').stop()
     $('#msgAlert').css('background-color', color)
     $('#msgAlert').fadeTo(250, 1);
     $('#msgAlert').text(text);
-    $('#msgAlert').fadeOut(7500);
+    if (hide) {
+        $('#msgAlert').fadeOut(7500);
+    }
 }
 
 // BROWSER HACKS
@@ -200,7 +202,7 @@ function sendMail() {
     let body = $('#contact_body').val();
 
     if (fromName === '' || from === '' || subject === '' || body === '') {
-        let emptyInputs = "⚠️ .jpg";
+        let emptyInputs = "⚠️ ";
         if (fromName === '') { emptyInputs += 'Full name, '; }
         if (from === '') { emptyInputs += 'Email, '; }
         if (subject === '') { emptyInputs += 'Subject, '; }
@@ -210,7 +212,12 @@ function sendMail() {
         return;
     }
 
-    msgAlert("⏳ Connecting to the server.", "#5E5EBB");
+    let replied = false;
+    msgAlert("⏳ Connecting to the server.", "#5E5EBB", false);
+
+    setTimeout(_ => {
+        if (!replied) { msgAlert("⌛️ Time out. Sorry, try again later.", "#8E6EDD"); }
+    }, 3500);
 
     Email.send({
         SecureToken: "02c23bcd-40c2-48f9-9453-fd3a6a1a0cfd",
@@ -220,7 +227,7 @@ function sendMail() {
         Subject: subject,
         Body: body
     }).then(status => {
-        console.log(status);
+        replied = true;
         if (status === 'OK') {
             msgAlert("✅ Message sent successfully.", "#5EBB5E");
         } else {
