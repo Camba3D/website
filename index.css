@@ -85,6 +85,7 @@ html, body {
 }
 .nav {
     margin-top: 3em;
+    margin-bottom: 1em;
 }
 .button {
     text-decoration: none;
@@ -260,11 +261,10 @@ i {
     .personal-links {
         flex-direction: row;
     }
-
     .reel {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
-    .video-description-content {
+    /* .video-description-content {
         display: initial;
 
         font-weight: 200;
@@ -283,7 +283,7 @@ i {
     }
     .video:hover .video-description {
         opacity: 1;
-    }
+    } */
 
 }
 
