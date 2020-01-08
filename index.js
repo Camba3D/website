@@ -131,7 +131,7 @@ function populatePortfolio() {
 
 
         // Main elements
-        let mainDiv = $("<div>").addClass("video-description").addClass('flexv');
+        let mainDiv = $("<div>").addClass("video-description");
         let iconSection = $("<section>").addClass("video-links");
 
         // Youtube link and icon

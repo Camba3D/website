@@ -174,7 +174,7 @@ html, body {
 
     border-radius: 5px;
     object-fit: cover;
-    opacity: 0.35;
+    opacity: 1;
 }
 .video-description {
     width: 100%;
@@ -187,10 +187,14 @@ html, body {
     -ms-transform: translate(-50%, -50%);
     text-align: center;
 
-    opacity: 1;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: flex-end; */
+    flex-direction: column-reverse;
 }
 .video-links {
     flex-direction: row;
+    background-color: rgba(var(--dark),.5);
 }
 .video-links a {
     margin: 0 .25em;
@@ -198,7 +202,8 @@ html, body {
 }
 .video-description-title {
     font-weight: 400;
-    font-size: 1.15em;
+    font-size: 1.25em;
+    background-color: rgba(var(--dark),.5);
 }
 .video-description-content {
     display: none;
