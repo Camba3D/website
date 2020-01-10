@@ -290,11 +290,24 @@ $(document).ready(() => {
         hamburgerOpen = !hamburgerOpen;
     });
 
+    $(document).click(function (event) {
+        $target = $(event.target);
+        if (!$target.closest('#btnHamburger, #popNav').length) {
+            $('#popNav').fadeOut(200);
+            if (hamburgerOpen) { hamburgerOpen = false; }
+        }
+    });
 
     const scrollEvents = [
         setSectionToURL,
         _ => setFade(100, '#btnTop'),
         _ => setFade(100, '#btnHamburger'),
+        _ => {
+            if (currScrollPos() < 100) {
+                $('#popNav').fadeOut(200);
+                if (hamburgerOpen) { hamburgerOpen = false; }
+            }
+        },
     ];
     for (const sEv of scrollEvents) { sEv(); }
     for (const sEv of scrollEvents) { $(window).scroll(sEv); }
