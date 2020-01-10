@@ -3,13 +3,13 @@
 
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154917020-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154917020-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'UA-154917020-1');
-    </script> -->
+    </script>
 
     <!-- SEO -->
     <title>Daniel Camba | Personal portfolio | C++ OpenGL Python & Coffee</title>
@@ -52,24 +52,32 @@
         <link rel="stylesheet" href="/assets/fontello.css">
     </noscript>
 
-    <link rel="stylesheet" rel="preload" href="/index.css?v=0.0.10" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" rel="preload" href="/index.css?v=0.0.11" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="/index.css?v=0.0.10">
+        <link rel="stylesheet" href="/index.css?v=0.0.11">
     </noscript>
 
     <!-- JS -->
     <script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script defer src="https://smtpjs.com/v3/smtp.js"></script>
     <script defer src="/assets/yall.min.js"></script>
-    <script defer src="/index.js?v=0.0.10"></script>
+    <script defer src="/index.js?v=0.0.11"></script>
 </head>
 
 <body>
     <div class="container">
+        <a class="btn-hamburger" id="btnHamburger"> <i class="icon-menu"></i> </a>
         <a class="btn-top" id="btnTop"> <i class="icon-up-big"></i> </a>
         <a class="msg-alert" id="msgAlert"></a>
+        <div class="pop-nav" id="popNav">
+            <ul>
+                <li><a class="pop-nav-btn" id="btnAbout">About me</a></li>
+                <li><a class="pop-nav-btn" id="btnPortfolio">Portfolio</a></li>
+                <li><a class="pop-nav-btn" id="btnContact">Contact</a></li>
+            </ul>
+        </div>
 
-        <header class="header flexv full" id="header">
+        <header class="header flexv full" id="top">
             <img class="lazy imagotype" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/logo.png" alt="Daniel's imagotype">
             <h1 class="brand flexv"><span class="name">Daniel</span> <span class="surname">Camba Lamas</span></h1>
             <p class="subhead">Software engineer: C++ and 3D enthusiast.</p>

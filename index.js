@@ -64,13 +64,13 @@ function activeSmoothScroll() {
         jqueryBtnScrollSmooth("#btnAbout", "#about");
         jqueryBtnScrollSmooth("#btnPortfolio", "#portfolio");
         jqueryBtnScrollSmooth("#btnContact", "#contact");
-        jqueryBtnScrollSmooth("#btnTop", "#header");
+        jqueryBtnScrollSmooth("#btnTop", "#top");
     } else {
         $("html").addClass("smooth-scroll");
         $("#btnAbout").attr("href", "#about");
         $("#btnPortfolio").attr("href", "#portfolio");
         $("#btnContact").attr("href", "#contact");
-        $("#btnTop").attr("href", "#header");
+        $("#btnTop").attr("href", "#top");
     }
 }
 
@@ -94,7 +94,7 @@ function setFade(scrollPosToHide, selector) {
 function setSectionToURL() {
 
     const limit = currScrollPos() + 30;
-    const sections = ['#header', '#about', '#portfolio', '#contact', '#footer'];
+    const sections = ['#top', '#about', '#portfolio', '#contact', '#footer'];
 
     for (const se of sections) {
         if ((se !== window.location.hash) &&
@@ -279,9 +279,22 @@ $(document).ready(() => {
 
     $('#submitContact').click(sendMail);
 
+    $('#popNav').fadeOut(0);
+    let hamburgerOpen = false;
+    $('#btnHamburger, .pop-nav-btn').click(_ => {
+        if (hamburgerOpen) {
+            $('#popNav').fadeOut(100);
+        } else {
+            $('#popNav').fadeIn(100);
+        }
+        hamburgerOpen = !hamburgerOpen;
+    });
+
+
     const scrollEvents = [
         setSectionToURL,
         _ => setFade(100, '#btnTop'),
+        _ => setFade(100, '#btnHamburger'),
     ];
     for (const sEv of scrollEvents) { sEv(); }
     for (const sEv of scrollEvents) { $(window).scroll(sEv); }

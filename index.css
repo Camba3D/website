@@ -18,14 +18,14 @@ html, body {
     background-color: rgb(var(--light));
 }
 
-.btn-top {
+.btn-hamburger, .btn-top {
     cursor: pointer;
 
     position: fixed;
     border-radius: 100%;
     bottom: 20px;
     right: 20px;
-    background-color: rgba(var(--light),.85);
+    background-color: rgb(var(--light));
     z-index: 2;
 
     width: 2rem;
@@ -33,9 +33,10 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgb(var(--dark));
-
-    /* opacity: 0; */
+    border: 3px solid rgb(var(--dark));
+}
+.btn-hamburger {
+    bottom: 65px;
 }
 
 .msg-alert {
@@ -53,18 +54,40 @@ html, body {
     opacity: 0;
 }
 
+.pop-nav{
+    text-align: center;
+
+    position: fixed;
+    bottom: 85px;
+    right: 40px;
+
+    border: 3px solid rgb(var(--dark));
+    border-radius: .25em;
+    background-color: rgb(var(--light));
+}
+.pop-nav ul {
+    list-style: none;
+}
+.pop-nav-btn {
+    cursor: pointer;
+    display: block;
+    padding: .35em;
+    margin: .5em;
+}
+
 .container {
     max-width: 85%;
     margin-left: auto;
     margin-right: auto;
 }
 
+
 .imagotype {
     width: 10em;
     margin: 2.5em 0;
 }
 .brand {
-    line-height: 0.9;
+    line-height: 0.85;
 }
 .brand .name{
     text-transform: uppercase;
@@ -86,6 +109,7 @@ html, body {
 .nav {
     margin-top: 3em;
     margin-bottom: 1em;
+    text-align: center;
 }
 .button {
     text-decoration: none;
@@ -101,7 +125,10 @@ html, body {
 .personal-links {
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    line-height: 0;
 }
 .btn-link {
     display: inline-block;
@@ -118,38 +145,9 @@ html, body {
 .content section h2 {
     font-size: 2.5em;
     margin-bottom: 1em;
+    text-transform: uppercase;
 }
 
-
-.contact {
-    box-shadow: 0 0 15px 0 rgba(var(--dark),.25);
-}
-.contact label {
-    width: 75%;
-}
-.contact input {
-    width: 75%;
-    margin-bottom: 2em;
-
-    padding: 1em;
-    outline:  none;
-    border: 1px dotted rgba(var(--dark),0.35);
-    font-size: 1em;
-    font-weight: 200;
-}
-.contact textarea {
-    resize: none;
-    width: 75%;
-    height: 10em;
-
-    padding: 1em;
-    outline:  none;
-    border: 1px dotted rgba(var(--dark),0.35);
-    font-size: 1em;
-    font-weight: 200;
-
-    margin-bottom: 2em;
-}
 
 .portfolio {
     overflow-x: scroll;
@@ -198,6 +196,39 @@ html, body {
     text-align: justify;
 }
 
+.contact {
+    box-shadow: 0 0 15px 0 rgba(var(--dark),.25);
+}
+.contact label {
+    width: 75%;
+}
+.contact input {
+    width: 75%;
+    margin-bottom: 2em;
+
+    padding: 1em;
+    outline:  none;
+    border: 1px dotted rgba(var(--dark),0.35);
+    font-size: 1em;
+    font-weight: 200;
+}
+.contact textarea {
+    resize: none;
+    width: 75%;
+    height: 10em;
+
+    padding: 1em;
+    outline:  none;
+    border: 1px dotted rgba(var(--dark),0.35);
+    font-size: 1em;
+    font-weight: 200;
+
+    margin-bottom: 2em;
+}
+.contact .button {
+    text-transform: capitalize;
+}
+
 .footer {
     margin: 2em 0;
 }
@@ -232,29 +263,32 @@ i {
 
 /* Media Queries */
 
-
-@media only screen and (orientation:landscape) {
-    .personal-links {
-        flex-direction: row;
-    }
-}
-
-/* Tablet */
 @media only screen and (max-width: 979px) {
-    .full {
-        height: 100%;
-    }
     .reel {
         grid-template-columns: repeat(2,1fr);
     }
 }
-
-/* Mobile */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 979px) and (orientation:landscape) {
     .full {
         height: 100%;
     }
+}
+@media only screen and (max-width: 600px) {
     .reel {
         grid-template-columns: repeat(1,1fr);
+    }
+    .personal-links {
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 374px) {
+    .button{
+        padding: .25em;
+        margin: .25em .25em;
+    }
+}
+@media only screen and (orientation:landscape) {
+    .personal-links {
+        flex-direction: row;
     }
 }
