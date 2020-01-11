@@ -1,4 +1,3 @@
-
 // ----------------------- //
 // Daniel Camba Lamas
 // <cambalamas@gmail.com>
@@ -47,30 +46,24 @@ function isChrome() {
 /**
  * Link buttons with sections with animation
  * and update url hash using 'pushState'.
- */
-function jqueryBtnScrollSmooth(selector, ID) {
-    $(selector).click(() => {
-        $('html,body').animate({ scrollTop: $(ID).offset().top }, 'slow');
-        window.history.pushState({}, "", ID);
-    });
-}
-
-/**
+ *
  * Smooth scroll only works on Chrome by default and jQuery bugs its behaviour
  * in Chrome but allow the effect in the rest of browsers.
  */
-function activeSmoothScroll() {
+function smoothScrollButton(buttonID, sectionID) {
     if (!isChrome()) {
-        jqueryBtnScrollSmooth("#btnAbout", "#about");
-        jqueryBtnScrollSmooth("#btnPortfolio", "#portfolio");
-        jqueryBtnScrollSmooth("#btnContact", "#contact");
-        jqueryBtnScrollSmooth("#btnTop", "#top");
+        $(`[id*=${buttonID}]`).each((_, e) => {
+            $(e).click(() => {
+                $('html,body').animate({
+                    scrollTop: $(sectionID).offset().top
+                }, 'slow');
+                window.history.pushState({}, "", sectionID);
+            });
+        });
     } else {
-        $("html").addClass("smooth-scroll");
-        $("#btnAbout").attr("href", "#about");
-        $("#btnPortfolio").attr("href", "#portfolio");
-        $("#btnContact").attr("href", "#contact");
-        $("#btnTop").attr("href", "#top");
+        $(`[id*=${buttonID}]`).each((_, e) => {
+            $(e).attr("href", ID);
+        });
     }
 }
 
@@ -312,8 +305,12 @@ $(document).ready(() => {
     for (const sEv of scrollEvents) { sEv(); }
     for (const sEv of scrollEvents) { $(window).scroll(sEv); }
 
-    activeSmoothScroll();
-    populatePortfolio();
-    lazyLoadImgs();
+    smoothScrollButton("btnAbout", "#about");
+    smoothScrollButton("btnPortfolio", "#portfolio");
+    smoothScrollButton("btnContact", "#contact");
+    smoothScrollButton("btnTop", "#top");
 
+    populatePortfolio();
+
+    lazyLoadImgs();
 });

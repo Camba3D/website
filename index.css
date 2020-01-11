@@ -16,6 +16,7 @@
 }
 html, body {
     background-color: rgb(var(--light));
+    scroll-behavior: smooth;
 }
 
 .btn-hamburger, .btn-top {
@@ -149,10 +150,6 @@ html, body {
 }
 
 
-.portfolio {
-    overflow-x: scroll;
-
-}
 .reel {
     display: grid;
     grid-template-columns:repeat(3,1fr);
@@ -254,11 +251,6 @@ i {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-/* Browser hacks */
-.smooth-scroll {
-    scroll-behavior: smooth;
 }
 
 /* Media Queries */
