@@ -65,11 +65,11 @@
 </head>
 
 <body>
-    <div class="container">
-        <a class="btn-hamburger" id="btnHamburger"> <i class="icon-menu"></i> </a>
-        <a class="btn-top" id="btnTop"> <i class="icon-up-big"></i> </a>
+    <div class="container flexv">
+        <a class="btn-hamburger neu-out" id="btnHamburger"> <i class="icon-menu"></i> </a>
+        <a class="btn-top neu-out" id="btnTop"> <i class="icon-up-big"></i> </a>
         <a class="msg-alert" id="msgAlert"></a>
-        <div class="pop-nav" id="popNav">
+        <div class="pop-nav neu-out" id="popNav">
             <ul>
                 <li><a class="pop-nav-btn" id="btnAboutPop">About me</a></li>
                 <li><a class="pop-nav-btn" id="btnPortfolioPop">Portfolio</a></li>
@@ -78,15 +78,19 @@
         </div>
 
         <header class="header flexv full" id="top">
-            <img class="lazy imagotype" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/logo.png" alt="Daniel's imagotype">
-            <h1 class="brand flexv"><span class="name">Daniel</span> <span class="surname">Camba Lamas</span></h1>
-            <p class="subhead">Software engineer: C++ and 3D enthusiast.</p>
-            <section class="nav">
-                <a class="button" id="btnAboutNav">About me</a>
-                <a class="button" id="btnPortfolioNav">Portfolio</a>
-                <a class="button" id="btnContactNav">Contact</a>
-            </section>
-            <section class="personal-links"></section>
+            <div class="header-wrapper flexv neu-in-header">
+
+                <img class="lazy imagotype" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/logo.png" alt="Daniel's imagotype">
+                <h1 class="brand flexv"><span class="name">Daniel</span> <span class="surname">Camba Lamas</span></h1>
+                <p class="subhead">C++ SDE and 3D enthusiast.</p>
+                <section class="nav">
+                    <a class="button neu-out" id="btnAboutNav">About me</a>
+                    <a class="button neu-out" id="btnPortfolioNav">Portfolio</a>
+                    <a class="button neu-out" id="btnContactNav">Contact</a>
+                </section>
+                <section class="personal-links"></section>
+            </div>
+
         </header>
 
 
@@ -95,7 +99,7 @@
             <section class="about flexv" id="about">
                 <h2>About me</h2>
                 <p>
-                    My name is Daniel Camba. I am a passionate Software Development Engineer with <a href="https://link.springer.com/chapter/10.1007%2F978-3-030-31635-8_123" target="_blank">academic</a> and professional experience in backend development as well as low-level tasks like: computer-graphics, memory-management, multithreading apps, used to create tools focused on final user.
+                    My name is Daniel Camba. I am a passionate Software Development Engineer with <a class="neu-out" href="https://link.springer.com/chapter/10.1007%2F978-3-030-31635-8_123" target="_blank">academic</a> and professional experience in backend development as well as low-level tasks like: computer-graphics, memory-management, multithreading apps, used to create tools focused on final user.
                     <br><br>
                     I achieve improvements on companies workflows, reducing one-week tasks to around two-days tasks and led the migration from a monolithic system to a RESTful based one, saving in 75% code to maintain.
                     <br><br>
@@ -103,7 +107,7 @@
                     <br><br>
                     With experience as solo-dev and as part of differents and multidisciplinary teams I always give my best on each assigned - <i>or self suggested</i> - task. Hence I would be a good asset for many kinds of companies, probably yours will be a good example.
                     <br><br>
-                    Take a look into <a href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">my resume</a> and <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities" class="chat">let’s chat about professional opportunities</a>.
+                    Take a look into <a class="neu-out" href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">my resume</a> and <a class="neu-out" id="btnContactAbout">let’s chat</a> about professional opportunities.
                 </p>
             </section>
 
@@ -210,25 +214,27 @@
                 </div>
             </section>
 
-            <section class="contact flexv" id="contact">
+            <section class="contact flexv neu-link" id="contact">
                 <h2>Contact</h2>
                 <label>Full name</label>
-                <input type="text" autocomplete="name" id="contact_fullname">
+                <input class="neu-in" type="text" autocomplete="name" id="contact_fullname">
                 <label>Email</label>
-                <input type="email" autocomplete="email" id="contact_email">
+                <input class="neu-in" type="email" autocomplete="email" id="contact_email">
                 <label>Subject</label>
-                <input id="contact_subject">
+                <input class="neu-in" id="contact_subject">
                 <label>Message</label>
-                <textarea id="contact_body"></textarea>
-                <a class="button" id="submitContact">Submit</a>
+                <textarea class="neu-in" id="contact_body"></textarea>
+                <a class="button neu-out" id="submitContact">Submit</a>
             </section>
 
         </main>
 
 
-        <footer class="footer flexv" id="footer">
-            <h3>Daniel Camba Lamas</h3>
-            <small>Made with ♥️ from Spain</small>
+        <footer class="footer flexv neu-out" id="footer">
+            <div class="flexv neu-in footer-text">
+                <h3>Daniel Camba Lamas</h3>
+                <small>Made with ♥️ from Spain</small>
+            </div>
             <section class="personal-links"></section>
         </footer>
 

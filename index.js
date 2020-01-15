@@ -169,7 +169,7 @@ function populatePortfolio() {
 
         // Complete portfolio div
         $(e)
-            .addClass("video")
+            .addClass("video neu-card")
             .append($("<img>")
                 .addClass("lazy")
                 .addClass("video-thumb")
@@ -251,11 +251,11 @@ const personalLinks = str2html(`
             <a class="btn-link" href="https://www.linkedin.com/in/cambalamas/" target="_blank">
                 <i class="icon-linkedin"></i>
             </a>
-            <a class="btn-link" href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">
-                <i class="icon-doc-text-inv"></i>
-            </a>
             <a class="btn-link" href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities" target="_blank">
                 <i class="icon-mail-alt"></i>
+            </a>
+            <a class="btn-link" href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">
+                <i class="icon-doc-text-inv"></i>
             </a>
         </section>
     `);
