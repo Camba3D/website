@@ -1,11 +1,13 @@
 :root {
-    --dark: 68,94,94;      /* #445E5E */
-    --mark: 187,94,94;     /* #BB5E5E */
+    /* --dark: 68,94,94; GREEN*/
+    /* --dark: 122, 55, 46; RED*/
+    --dark: 87, 24, 17;
+    --mark: 187,94,94;
     --light: 221,222,222;
     --lighter: 251,252,252;
 }
 
-.neu-out, .neu-in, .neu-card, .neu-in-header{
+.neu-out, .neu-in, .neu-card {
     --neu-dist: 3px;
     --neu-blur: 6px;
     --neu-dark-opacity: 0.25;
@@ -34,7 +36,7 @@
     border-radius: 5px !important;
     box-shadow: var(--dark-shadow), var(--light-shadow) !important;
 }
-.neu-in, .neu-in-header {
+.neu-in {
     -webkit-appearance: none;
     box-shadow: inset var(--dark-shadow), inset var(--light-shadow) !important;
 }
@@ -130,9 +132,23 @@ html, body {
     min-height: 75%;
     padding: 5em 0;
 }
+.imagotype-wrapper {
+    border-radius: 100% !important;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .imagotype {
-    width: 10em;
-    margin: .5em 0;
+    padding: 0;
+    border-radius: 100% !important;
+    width: 250px;
+    height: 250px;
+    /* transform: translate(.35em,0); */
+    /* width: 10em; */
+    /* margin: .5em 0; */
+    object-fit: cover;
 }
 .brand {
     line-height: 0.85;
@@ -314,17 +330,6 @@ i {
 @media only screen and (max-width: 979px) and (orientation:portrait) {
     .reel {
         grid-template-columns: repeat(2,1fr);
-    }
-    .neu-in-header {
-        padding: 0;
-        margin: 0;
-        text-decoration: none;
-
-        color: initial !important;
-        background-color: initial !important;
-        border: initial !important;
-        border-radius: initial !important;
-        box-shadow: initial !important;
     }
 }
 @media only screen and (max-width: 979px) and (orientation:landscape) {
