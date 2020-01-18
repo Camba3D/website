@@ -62,7 +62,7 @@ function smoothScrollButton(buttonID, sectionID) {
         });
     } else {
         $(`[id*=${buttonID}]`).each((_, e) => {
-            $(e).attr("href", ID);
+            $(e).attr("href", sectionID);
         });
     }
 }
