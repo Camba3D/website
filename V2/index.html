@@ -2,18 +2,12 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154917020-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-154917020-1');
-    </script>
+    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', 'UA-154917020-1'); </script>
 
     <!-- SEO -->
     <title>Camba | Software engineer</title>
-    <!-- <title>Daniel Camba | Personal portfolio | C++ OpenGL Python & Coffee</title> -->
     <meta keywords="daniel camba lamas cambalamas cpp c++ graphics games videogames restful rest api opengl python go golang low-level know-how multithreading 3D render renderization game-engine">
     <meta name="description" content="A passionate Software Engineer with academic and professional experience. Focused on deep know-how of C++, advocate of clean-code, TDD, renderization and visual stuff.">
 
@@ -22,7 +16,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
 
     <!-- FavIcon -->
     <link rel="manifest" href="./manifest.json">
@@ -43,19 +36,19 @@
     <link rel="icon" type="image/png" sizes="96x96" href="./assets/icon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon/android-icon-192x192.png">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/fonts/fontello/css/fontello.css">
-    <link rel="stylesheet" href="./index.css?v=0.0.17">
-
-    <!-- JS -->
-    <script defer src="https://smtpjs.com/v3/smtp.js"></script>
-    <script defer src="./assets/yall.min.js"></script>
-    <script defer src="./index.js?v=0.0.17"></script>
+    <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Source+Code+Pro:200i,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css?v=0.0.1">
+    <script defer src="./index.js?v=0.0.1"></script>
 </head>
 
 <body>
+    <div class="nav">
+        <div class="logo-wrapper">
+            <a class="logo">D</a>
+        </div>
 
-    <a class="btn-menu" id="btnMenu"><i class="icon-menu"></i></a>
+        <a class="btn-menu" id="btnMenu"><i class="icon-menu"></i></a>
+    </div>
 
     <section class="pop-nav" id="popNav">
         <wrapper>
@@ -71,11 +64,11 @@
     <div class="container flexv" id="container">
 
         <header class="header" id="top">
-            <section>
+            <wrapper>
                 <small>Hi, my name is</small>
-                <h1 class="brand" id="brand"><span class="name">Daniel</span> <span class="surname">Camba Lamas</span></h1>
+                <h1 class="brand" id="brand"><span class="name">Daniel</span> <span class="surname">Camba</span></h1>
                 <p class="subhead">I make computer draw things 🖼</p>
-            </section>
+            </wrapper>
         </header>
 
         <main>
