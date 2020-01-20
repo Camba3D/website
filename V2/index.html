@@ -12,7 +12,8 @@
     </script>
 
     <!-- SEO -->
-    <title>Daniel Camba | Personal portfolio | C++ OpenGL Python & Coffee</title>
+    <title>Camba | Software engineer</title>
+    <!-- <title>Daniel Camba | Personal portfolio | C++ OpenGL Python & Coffee</title> -->
     <meta keywords="daniel camba lamas cambalamas cpp c++ graphics games videogames restful rest api opengl python go golang low-level know-how multithreading 3D render renderization game-engine">
     <meta name="description" content="A passionate Software Engineer with academic and professional experience. Focused on deep know-how of C++, advocate of clean-code, TDD, renderization and visual stuff.">
 
@@ -24,65 +25,67 @@
 
 
     <!-- FavIcon -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/android-icon-192x192.png">
+    <meta name="msapplication-TileImage" content="./assets/icon/ms-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="./assets/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./assets/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./assets/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./assets/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./assets/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./assets/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./assets/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon/android-icon-192x192.png">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/assets/fonts/fontello/css/fontello.css">
-    <link rel="stylesheet" href="/index.css?v=0.0.17">
+    <link rel="stylesheet" href="./assets/fonts/fontello/css/fontello.css">
+    <link rel="stylesheet" href="./index.css?v=0.0.17">
 
     <!-- JS -->
-    <script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script defer src="https://smtpjs.com/v3/smtp.js"></script>
-    <script defer src="/assets/yall.min.js"></script>
-    <script defer src="/index.js?v=0.0.17"></script>
+    <script defer src="./assets/yall.min.js"></script>
+    <script defer src="./index.js?v=0.0.17"></script>
 </head>
 
 <body>
-    <div class="container flexv">
 
-        <a class="msg-alert" id="msgAlert"></a>
-        <a class="btn-top dark" id="btnTop"> <i class="icon-up-big"></i> </a>
-        <a class="btn-hamburger dark" id="btnHamburger" onclick="toogleMenu()">
-            <i class="icon-menu"></i>
-        </a>
+    <a class="btn-menu" id="btnMenu"><i class="icon-menu"></i></a>
 
-        <div class="pop-nav flexv" id="popNav">
-            <ul>
-                <li><a class="pop-nav-btn" id="btnAboutPop">About me</a></li>
-                <li><a class="pop-nav-btn" id="btnPortfolioPop">Portfolio</a></li>
-                <li><a class="pop-nav-btn" id="btnContactPop">Contact</a></li>
-            </ul>
-        </div>
+    <section class="pop-nav" id="popNav">
+        <wrapper>
+            <a class="pop-nav-btn" id="btnAbout">About me</a>
+            <a class="pop-nav-btn" id="btnPortfolio">Portfolio</a>
+            <a class="pop-nav-btn" id="btnContact">Contact</a>
+            <div class="btn-top" id="btnTop">
+                <div> <i class="icon-up-big"></i> </div>
+            </div>
+        </wrapper>
+    </section>
+
+    <div class="container flexv" id="container">
 
         <header class="header" id="top">
-            <small>Hi, my name is</small>
-            <h1 class="brand flexv" id="brand"><span class="name">Daniel</span> <span class="surname">Camba Lamas</span></h1>
-            <p class="subhead">I make computer draw things 🖼</p>
+            <section>
+                <small>Hi, my name is</small>
+                <h1 class="brand" id="brand"><span class="name">Daniel</span> <span class="surname">Camba Lamas</span></h1>
+                <p class="subhead">I make computer draw things 🖼</p>
+            </section>
         </header>
 
-        <!-- <main>
-            <section>
-                <div class="avatar-wrapper">
-                    <img class="lazy avatar" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/me.png" alt="Daniel's imagotype">
-                </div>
+        <main>
+            <section class="about flexv" id="about">
+                <img class="lazy avatar" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/me.png" alt="Daniel's imagotype">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus magnam autem hic delectus soluta ut modi laudantium, id quae adipisci corporis repellendus possimus blanditiis in ipsa, dolore excepturi deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error veniam, quis iusto laudantium maxime quia eum, repellat quae, dolorem perspiciatis at numquam laborum voluptates dolores expedita? Similique voluptate voluptatibus reiciendis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos asperiores consequatur similique eaque tenetur laudantium quia reiciendis, nobis ex ab corporis esse dolorum rerum amet veritatis odio quod deleniti dolore!
+                </p>
             </section>
-        </main> -->
+        </main>
 
     </div>
 </body>

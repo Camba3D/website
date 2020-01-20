@@ -21,13 +21,14 @@ html, body {
 a{
     text-decoration: none;
 }
-.flexv {
+.flexh {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
-.flexc {
+.flexv,
+.pop-nav, .header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,25 +42,28 @@ a{
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400&display=swap');
 
 :root {
-    /* --c-back: #283044;
-    --c-front: #e8d5c2;
-    --c-lmark: #880044;
-    --c-hmark: #d34e4e;
-    --c-hlight: #78a1bb; */
     --c-back: 40, 48, 68;
     --c-front: 232, 213, 194;
     --c-lmark: 136, 0, 68;
     --c-hmark: 211, 78, 78;
     --c-hlight: 120, 161, 187;
 
+    --f-thin: 200;
+    --f-heavy: 400;
+
+
     /* js setup */
     --vh: 1vh;
     --btn-menu-color: rgb(var(--c-back));
 
+    --full-height: 100vh;
+    --full-height-dynamic: calc(var(--vh,1vh) * 100);
+
+    /* counters */
     counter-reset: my-sec-counter;
 }
 * {
-    font-weight: 400;
+    font-weight: var(--f-heavy);
     color: rgb(var(--c-front));
     font-family: 'Source Code Pro', monospace;
 }
@@ -69,76 +73,76 @@ html, body {
 
 /* Fixed items */
 
-.btn-hamburger i, .btn-top i{
+.btn-menu i{
     color: var(--btn-menu-color);
     transition: color ease-in-out 0.5s;
 }
-.btn-hamburger i:active, .btn-top i:active{
+.btn-menu i:active{
     color: var(--btn-menu-color);
     transition:
         color ease-in-out 0.5s,
         transform ease-in-out 0.3s;
 }
-.btn-hamburger, .btn-top {
+.btn-menu {
     z-index: 999;
-    cursor: pointer;
+
+    top: 0px;
+    right: 0px;
     position: fixed;
+
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 1em;
     --size: 3em;
+    font-size: 1em;
     width:  var(--size);
     height: var(--size);
+    border-bottom-left-radius: 10px;
 
     background-color: rgb(var(--c-hlight));
     transition:
         transform ease-in-out 0.1s,
         background-color ease-in-out 0.5s;
 }
-.btn-top {
-    left: 0px;
-    bottom: 0px;
-    border-top-right-radius: 10px;
-}
-.btn-hamburger {
-    top: 0px;
-    right: 0px;
-    border-bottom-left-radius: 10px;
-}
-.btn-top:hover, .btn-hamburger:hover {
+.btn-menu:hover {
     transform: scale(1.025,1.025);
 }
-.btn-top:active, .btn-hamburger:active {
+.btn-menu:active {
     transform: scale(1.05,1.05);
 }
 
 .pop-nav {
-    top: -120vh;
+    z-index: 2;
+
     left: 0;
-    z-index: 1;
-    width: 100vw;
-    height: calc(var(--vh) * 100);
-    position: fixed;
+    top: -2500px;
+    position: absolute;
+
+    width: 100%;
+    min-height: 100%;
+    overflow-x: auto;
+
+    font-size: 2.5em;
     text-align: justify;
     background-color: rgba(var(--c-hmark));
 
-    font-size: 2.5em;
     transition:
+        left ease-in-out 0.75s,
         top ease-in-out 0.75s,
-        height cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+        height cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.75s;
 }
 .pop-nav ul {
     list-style: none;
 }
-.pop-nav ul li::before {
+.pop-nav-btn::before {
     color: rgba(var(--c-back), 1);
     counter-increment: my-sec-counter;
     content: "0"counter(my-sec-counter) ".";
     padding-right: 1em;
 }
-.pop-nav ul li {
+.pop-nav-btn {
     display: block;
     cursor: pointer;
     margin: 1.5em 0;
@@ -154,42 +158,58 @@ html, body {
 .pop-nav-btn:active{
     color: rgba(var(--c-back), .5);
 }
+.btn-top *{
+    color: rgb(var(--c-back));
+    transition:
+        transform ease-in 0.25s,
+        color ease-in-out 0.25s;
+}
+.btn-top:hover *{
+    color: rgba(var(--c-back),.75);
+    transform: translate(0,-.25em);
+}
+.btn-top:active *{
+    color: rgba(var(--c-back),0);
+    transform: translate(0,-2em);
+}
+.btn-top {
+    padding: .75em 1em;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+
+    background: rgba(var(--c-front), .015);
+    background: linear-gradient(to bottom,  transparent 0%, rgba(var(--c-front), .025) 100%);
+    box-shadow: 0 16px 32px -16px rgba(var(--c-lmark),.15);
+}
+
 
 /* Non fixed items */
 
 .header {
-    padding: 2vh 0;
-    height: calc(var(--vh) * 100);
+    height: var(--full-height);
     transition: height cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
-    /* margin-top: calc(var(--vh) * 2);
-    margin-bottom: calc(var(--vh) * 2); */
+}
+.brand *{
+    color:  red;
 }
 
-.avatar-wrapper, .avatar {
-    border-radius: 100%;
-}
-.avatar-wrapper {
-    width: 300px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-shadow:
-        inset -2px -2px 8px rgba(255,255,255,1),
-        inset -2px -2px 12px rgba(255,255,255,1),
-        inset 4px 4px 12px rgba(255,255,255,0.2),
-        inset 2px 2px 8px rgba(0,0,0, 0.35);
+main > section {
+    height: var(--full-height);
 }
 .avatar {
     width: 250px;
-    height: 250px;
     object-fit: cover;
-    border: 5px solid rgba(var(--light));
-
+    border-radius: 100%;
+    border: 6px solid transparent;
     box-shadow:
-        -2px -2px 8px rgba(255,255,255,1),
-        -2px -2px 12px rgba(255,255,255,0.5),
-        inset 4px 4px 12px rgba(255,255,255,0.2),
-        2px 2px 8px rgba(0,0,0, 0.35);
+        0 -10px 0 0 rgba(var(--c-hlight),.125),
+        0 -25px 0 0 rgba(var(--c-hlight),.0625),
+        0 -40px 0 0 rgba(var(--c-hlight),.03125);
+    margin-bottom: 75px;
+}
+.about {
+}
+.about p {
+    margin: 0 15vw;
 }

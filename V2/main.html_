@@ -1,0 +1,204 @@
+<main class="content">
+
+    <section class="about flexv" id="about">
+        <!-- <h2>About me</h2> -->
+        <p>
+            My name is Daniel Camba. I am a passionate Software Development Engineer with <a href="https://link.springer.com/chapter/10.1007%2F978-3-030-31635-8_123" target="_blank">academic</a> and professional experience in backend development as well as low-level tasks like: computer-graphics, memory-management, multithreading apps, used to create tools focused on final user.
+            <br><br>
+            I achieve improvements on companies workflows, reducing one-week tasks to around two-days tasks and led the migration from a monolithic system to a RESTful based one, saving in 75% code to maintain.
+            <br><br>
+            At this life-moment I am focused on deep know-how of C++ latest standard features as well as its idioms, good use of STL and learning how everything works under-the-hood. I'm also an advocate of clean-code, TDD, process automation, renderization and visual stuff.
+            <br><br>
+            With experience as solo-dev and as part of differents and multidisciplinary teams I always give my best on each assigned - <i>or self suggested</i> - task. Hence I would be a good asset for many kinds of companies, probably yours will be a good example.
+            <br><br>
+            Take a look into <a href="/assets/docs/Resume_DanielCamba.pdf" target="_blank">my resume</a> and <a id="btnContactAbout">let’s chat</a> about professional opportunities.
+        </p>
+    </section>
+
+    <section class="portfolio flexv" id="portfolio">
+        <h2>Portfolio</h2>
+        <section class="reel">
+            <!-- Interactive Motion Graph -->
+            <article class="video ">
+                <img class="video-thumb" alt="Interactive Motion Graph" src="/assets/img/thumbnail/imog.png" data-src="/assets/img/thumbnail/imog.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=oZhsqQzcz48" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://github.com/cambalamas/imog" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Interactive Motion Graph</h3>
+                    <p class="video-description-content">C++17 OpenGL4 wrapper with parsers for OBJ and BVH files and support for skeleton animation and interaction graph-based, generating transitions between graph nodes by interpolating the joint rotation.</p>
+                </div>
+            </article>
+            <!-- Don't paint me -->
+            <article class="video ">
+                <img class="video-thumb" alt="Don't paint me!" src="/assets/img/thumbnail/dontpaintme.png" data-src="/assets/img/thumbnail/dontpaintme.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=2Z41U9yh7K0" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/DontPaintMe" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Don't paint me!</h3>
+                    <p class="video-description-content">Paint NPCs quicker than your rival, the game has difficult levels, path decission, explore curves and interpolation concepts and it's fun for a break. All objects modeled and rigged using 3DMax.</p>
+                </div>
+            </article>
+            <!-- Catched -->
+            <article class="video ">
+                <img class="video-thumb" alt="Catched!" src="/assets/img/thumbnail/catched.png" data-src="/assets/img/thumbnail/catched.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=XWu2WUpjcoI" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/Catch_ed" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Catched!</h3>
+                    <p class="video-description-content">A non-interactive game to explore AI based on decision trees with safe areas, targets and power-ups.</p>
+                </div>
+            </article>
+            <!-- Grimoire -->
+            <article class="video ">
+                <img class="video-thumb" alt="Grimoire" src="/assets/img/thumbnail/grimoire.png" data-src="/assets/img/thumbnail/grimoire.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=zk0RkSM18Fk" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/PrjoectGrimoire" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Grimoire</h3>
+                    <p class="video-description-content">An interactive Hack'n'Slash game with melee and range combat and subsytems for: crowd management, waves and difficulty grading. Following game feel patterns and a great exercise to improve team work skills.</p>
+                </div>
+            </article>
+            <!-- WaterColor -->
+            <article class="video ">
+                <img class="video-thumb" alt="WaterColor" src="/assets/img/thumbnail/watercolor.png" data-src="/assets/img/thumbnail/watercolor.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=0vYF3mW6pjI" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/watercolor/watercolor.glsl" target="_blank"><i class="icon-github-circled"></i></a>
+                        <a href="https://docs.google.com/presentation/d/1b_mIipfW0n6i6JNm-K1dD3sPiq4kaNyXmJ5upyZswfI/edit?usp=sharing" target="_blank"><i class="icon-doc-text-inv"></i></a>
+                    </div>
+                    <h3 class="video-description-title">WaterColor</h3>
+                    <p class="video-description-content">Visualize 3D objects as if it were painted using watercolours using multiple Perlin noises and implementing hand-wobble.</p>
+                </div>
+            </article>
+            <!-- Convolution filter -->
+            <article class="video ">
+                <img class="video-thumb" alt="Convolution filters" src="/assets/img/thumbnail/convfilter.png" data-src="/assets/img/thumbnail/convfilter.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=scc9yg8-pU8" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/openGL_and_glsl/blob/master/P4/shaders_P4/postProcessing.v1.frag" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Convolution filters</h3>
+                    <p class="video-description-content">C++14 setup and OpenGL4 shaders for apply convolution filters on 3D meshes using Deferred Shading.</p>
+                </div>
+            </article>
+            <!-- Cloth sim -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Handmade cloth simulation" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/clothsim.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=kSXYslrRbvY" target="_blank"><i class="icon-youtube-play"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Handmade cloth simulation</h3>
+                    <p class="video-description-content">Physics made without Unity Physics to simulate cloth and its interaction with a mouse-managed gravity.</p>
+                </div>
+            </article>
+            <!-- Procedural terrain -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Procedural terrain with LOD" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/lodterrain.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=IwkHQ_bOhfE" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/terrain.glsl" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Procedural terrain with LOD</h3>
+                    <p class="video-description-content">Octaves and elevation control with LOD (Level of detail) based on camera distance and camera interaction using mouse and keyboard.</p>
+                </div>
+            </article>
+            <!-- Off Axis -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="VR Off-Axis tracking" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/offaxis.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=ICD4tvXNdaE" target="_blank"><i class="icon-youtube-play"></i></a>
+                    </div>
+                    <h3 class="video-description-title">VR Off-Axis tracking</h3>
+                    <p class="video-description-content">VR context demo exploring off-axis perspective projection and tracking interaction based on pattern detection.</p>
+                </div>
+            </article>
+            <!-- Animation mask -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Exploring Unity's animation mask" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/animmask.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=qEVfovJ2z2s" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/PrjoectGrimoire" target="_blank"><i class="icon-github-circled"></i></a></div>
+                    <h3 class="video-description-title">Exploring Unity's animation mask</h3>
+                    <p class="video-description-content">Masking upper-body of attack animation and lower-body of run animation.</p>
+                </div>
+            </article>
+            <!-- Water shader -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Naive water shader" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/naivewater.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=dIHax1Nmo8I" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/procedural/water.glsl" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Naive water shader</h3>
+                    <p class="video-description-content">Simulate water waves mixing two perlin noises on my own engine.</p>
+                </div>
+            </article>
+            <!-- Geometry shaders -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Exploring geometry shaders" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/explode.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=z7ZDNZHLlF4" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/SyZyGy/blob/master/app/res/shaders/geometry/explode.glsl" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Exploring geometry shaders</h3>
+                    <p class="video-description-content">Explode effect pushing quads in the direction of normals using OpenGL4 and C++.</p>
+                </div>
+            </article>
+            <!-- matlab inverse kinematic -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Matlab 2D-IK" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/ik2d.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=3ADj3hj1kR0" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://gitlab.com/cambalamas/migjrv_AC/" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Matlab 2D-IK</h3>
+                    <p class="video-description-content">Inverse kinematic on 2D skeleton on matlab env.</p>
+                </div>
+            </article>
+            <!-- Prototypist -->
+            <article class="video ">
+                <img class="lazy video-thumb" alt="Prototypist" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/thumbnail/prototypist.png">
+                <div class="video-description">
+                    <div class="video-links">
+                        <a href="https://www.youtube.com/watch?v=vnnRPrnEVkE" target="_blank"><i class="icon-youtube-play"></i></a>
+                        <a href="https://github.com/cambalamas/prototypist" target="_blank"><i class="icon-github-circled"></i></a>
+                    </div>
+                    <h3 class="video-description-title">Prototypist</h3>
+                    <p class="video-description-content">Interactive mockup definition tool to prototype the behaviour of an application for a better customer's understanding of the final product.</p>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <section class="contact flexv" id="contact">
+        <h2>Contact</h2>
+        <small>Or if you prefer to use your own email client, write to: <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities">hello@cambalamas.com</a></small>
+        <label>Full name</label>
+        <input type="text" autocomplete="name" id="contact_fullname">
+        <label>Email</label>
+        <input type="email" autocomplete="email" id="contact_email">
+        <label>Subject</label>
+        <input id="contact_subject">
+        <label>Message</label>
+        <textarea id="contact_body"></textarea>
+        <a class="button " id="submitContact">Submit</a>
+    </section>
+
+</main>
