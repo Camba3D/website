@@ -7,9 +7,20 @@ var yall = function () { "use strict"; return function (e) { var n = (e = e || {
 // SmtpJS
 var Email = { send: function (a) { return new Promise(function (n, e) { a.nocache = Math.floor(1e6 * Math.random() + 1), a.Action = "Send"; var t = JSON.stringify(a); Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) { n(e) }) }) }, ajaxPost: function (e, n, t) { var a = Email.createCORSRequest("POST", e); a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), a.onload = function () { var e = a.responseText; null != t && t(e) }, a.send(n) }, ajax: function (e, n) { var t = Email.createCORSRequest("GET", e); t.onload = function () { var e = t.responseText; null != n && n(e) }, t.send() }, createCORSRequest: function (e, n) { var t = new XMLHttpRequest; return "withCredentials" in t ? t.open(e, n, !0) : "undefined" != typeof XDomainRequest ? (t = new XDomainRequest).open(e, n) : t = null, t } };
 
+// Smooth scroll polyfill
+var scroll = new SmoothScroll('a[href*="#"]', {
+    header: '[data-scroll-header]'
+});
 // ------------------------------------------------------------------------- //
 // ---------------------------------------------- //
 // --------------------- //
+
+/**
+ * Check the current scroll position using 'window' or 'document' as fallback.
+ */
+function currScrollPos() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+}
 
 (function () {
     let CSS = {
@@ -27,36 +38,66 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
     let HTML = {
         body: document.querySelector('body'),
         container: document.getElementById('container'),
+        nav: document.getElementById('nav'),
+        logo: document.getElementById('logo'),
         menu: document.getElementById('btnMenu'),
         popNav: document.getElementById('popNav'),
         goAbout: document.getElementById('btnAbout'),
         goPortfolio: document.getElementById('btnPortfolio'),
         goContact: document.getElementById('btnContact'),
-        goTop: document.getElementById('btnTop'),
         about: document.getElementById('about'),
     };
 
-    const popNavToggle = _ => {
-        if (STATE.menu) {
-            HTML.popNav.style.top = '-2500px';
-            HTML.container.style.display = 'inherit';
-            CSS.set('--btn-menu-color', CSS.rgba('--c-back'));
-            HTML.menu.style.backgroundColor = CSS.rgba('--c-hlight');
-            setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-menu"></i>' }, 200);
-        } else {
+    let oldYPos = currScrollPos();
+    const popNav = {
+        onClose: _ => {
+            setTimeout(() => {
+                HTML.logo.style.color = CSS.rgba('--c-hmark');
+                HTML.logo.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
+                HTML.nav.style.backgroundColor = CSS.rgba('--c-back');
+
+                if (oldYPos > 0) { scroll.animateScroll(oldYPos); }
+
+                setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-menu"></i>' }, 100);
+                setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-hmark'); }, 101);
+            }, 400);
+
+            HTML.container.classList = 'container';
+            HTML.popNav.style.top = '-2000px';
+        },
+        onOpen: _ => {
+            HTML.logo.style.color = CSS.rgba('--c-back');
+            HTML.logo.style.textShadow = '0 0 15px rgba(var(--c-back),.35)';
+            HTML.nav.style.backgroundColor = CSS.rgba('--c-hmark');
+            setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-cancel"></i>' }, 100);
+            setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-back'); }, 101);
+
+            oldYPos = currScrollPos();
+            scroll.animateScroll(1);
+            setTimeout(() => { HTML.container.classList = 'container-alt'; }, 750);
+
             HTML.popNav.style.top = '0';
-            HTML.container.style.display = 'none';
-            CSS.set('--btn-menu-color', CSS.rgba('--c-hmark'));
-            HTML.menu.style.backgroundColor = CSS.rgba('--c-back');
-            setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-cancel"></i>' }, 200);
-        }
-        STATE.menu = !STATE.menu;
-    };
-    HTML.menu.addEventListener('click', popNavToggle);
-    HTML.goAbout.addEventListener('click', popNavToggle);
-    HTML.goPortfolio.addEventListener('click', popNavToggle);
-    HTML.goContact.addEventListener('click', popNavToggle);
-    HTML.goTop.addEventListener('click', popNavToggle);
+        },
+        toggle: _ => {
+            (!STATE.menu) ? popNav.onOpen() : popNav.onClose();
+            STATE.menu = !STATE.menu;
+        },
+    }
+    HTML.menu.addEventListener('click', popNav.toggle);
+
+    window.addEventListener("resize", _ => {
+        console.log("WIDTH: " + window.innerWidth);
+        if (window.innerWidth > 650 && STATE.menu) { popNav.onClose(); }
+    });
+
+    const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = -1; } }
+    HTML.logo.addEventListener('click', onclicPopNav);
+    HTML.goAbout.addEventListener('click', onclicPopNav);
+    HTML.goPortfolio.addEventListener('click', onclicPopNav);
+    HTML.goContact.addEventListener('click', onclicPopNav);
+
+
+
 
     yall(); // lazyload imgs
 })();

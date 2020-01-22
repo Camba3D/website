@@ -36,47 +36,111 @@
     <link rel="icon" type="image/png" sizes="96x96" href="./assets/icon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon/android-icon-192x192.png">
 
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Source+Code+Pro:200i,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./index.css?v=0.0.1">
     <script defer src="./index.js?v=0.0.1"></script>
 </head>
 
 <body>
-    <div class="nav">
-        <div class="logo-wrapper">
-            <a class="logo">D</a>
-        </div>
 
+    <nav class="nav" id="nav" data-scroll-header>
+        <a href="#top" class="logo" id="logo">D.</a>
         <a class="btn-menu" id="btnMenu"><i class="icon-menu"></i></a>
-    </div>
-
+        <wrapper class="nav-links" id="navLinks">
+            <a href="#about">About me</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+            <div class="resume">
+                <a href="./assets/docs/Resume_DanielCamba.pdf" download>Resume</a>
+            </div>
+        </wrapper>
+    </nav>
     <section class="pop-nav" id="popNav">
         <wrapper>
-            <a class="pop-nav-btn" id="btnAbout">About me</a>
-            <a class="pop-nav-btn" id="btnPortfolio">Portfolio</a>
-            <a class="pop-nav-btn" id="btnContact">Contact</a>
-            <div class="btn-top" id="btnTop">
-                <div> <i class="icon-up-big"></i> </div>
+            <a href="#about" id="btnAbout">About me</a>
+            <a href="#portfolio" id="btnPortfolio">Portfolio</a>
+            <a href="#contact" id="btnContact">Contact</a>
+            <div class="resume-alt">
+                <a href="./assets/docs/Resume_DanielCamba.pdf" download>Resume</a>
             </div>
         </wrapper>
     </section>
 
-    <div class="container flexv" id="container">
+    <div class="container" id="container">
 
         <header class="header" id="top">
-            <wrapper>
+            <div class="introduction">
                 <small>Hi, my name is</small>
-                <h1 class="brand" id="brand"><span class="name">Daniel</span> <span class="surname">Camba</span></h1>
-                <p class="subhead">I make computer draw things 🖼</p>
-            </wrapper>
+                <h1 class="brand" id="brand">Daniel Camba</h1>
+                <p class="subhead">I make computers draw things 🖼</p>
+                <p class="brief">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aspernatur? Architecto dicta error, cum voluptatum similique ullam quod excepturi ipsam hic exercitationem atque vel, non eligendi voluptatem dolorum velit esse?
+                </p>
+            </div>
         </header>
 
         <main>
-            <section class="about flexv" id="about">
-                <img class="lazy avatar" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/me.png" alt="Daniel's imagotype">
+            <section class="about" id="about">
+                <h2>About me</h2>
+                <wrapper>
+                    <div class="about-text">
+                        <p>
+                            Hello! I am Daniel, a passionate software engineer based in Spain who enjoys building interactive and visual things.
+                            <br><br>
+                            I've achieve improvements on companies workflows, <span>reducing one-week tasks to around two-days tasks</span> also, led the migration from a monolithic system to a RESTful based one, <span>saving in 75% code to maintain</span>.
+                            <br><br>
+                            At this life-moment I am on a self-improve process of my <span>C++</span> skills, learning about latest standard features, good use of STL and using it all to create cool personal and freelance projects.
+                            <br><br>
+                            <span>On my toolbelt:</span>
+                        </p>
+
+                        <ul>
+                            <li>C++ 17</li>
+                            <li>OpenGL 4.x</li>
+                            <li>Python 3.x</li>
+                            <li>HTML & CSS</li>
+                            <li>Go (gin-goninc)</li>
+                            <li>JavaScript (ES5+)</li>
+                            <li>3D maths</li>
+                            <li>Multi-threading</li>
+                            <li>Memory-management</li>
+                        </ul>
+
+                        <p>
+                            <br><br>
+                            <div class="sep"></div>
+                            Take a look into <a href="/assets/docs/Resume_DanielCamba.pdf" download>my resume</a> and <a href="#contact" id="btnContactAbout">let’s chat</a> about professional opportunities.
+                            <br><br>
+                        </p>
+                    </div>
+
+                    <div class="avatar-wrapper">
+                        <a class="avatar" href="https://github.com/cambalamas">
+                            <img class="lazy" src="/assets/img/thumbnail/placeholder.jpg" data-src="/assets/img/me.png" alt="Daniel's imagotype">
+                        </a>
+                    </div>
+                </wrapper>
+            </section>
+
+            <section class="portfolio" id="portfolio">
+                <h2>Portfolio</h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus temporibus magnam autem hic delectus soluta ut modi laudantium, id quae adipisci corporis repellendus possimus blanditiis in ipsa, dolore excepturi deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error veniam, quis iusto laudantium maxime quia eum, repellat quae, dolorem perspiciatis at numquam laborum voluptates dolores expedita? Similique voluptate voluptatibus reiciendis! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos asperiores consequatur similique eaque tenetur laudantium quia reiciendis, nobis ex ab corporis esse dolorum rerum amet veritatis odio quod deleniti dolore!
                 </p>
+            </section>
+            <section class="contact" id="contact">
+                <h2>Contact</h2>
+                <small>Or if you prefer to use your own email client, write to: <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities">hello@cambalamas.com</a></small>
+                <label>Full name</label>
+                <input type="text" autocomplete="name" id="contact_fullname">
+                <label>Email</label>
+                <input type="email" autocomplete="email" id="contact_email">
+                <label>Subject</label>
+                <input id="contact_subject">
+                <label>Message</label>
+                <textarea id="contact_body"></textarea>
+                <a class="button " id="submitContact">Submit</a>
             </section>
         </main>
 
