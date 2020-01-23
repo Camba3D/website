@@ -36,8 +36,16 @@
     <link rel="icon" type="image/png" sizes="96x96" href="./assets/icon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon/android-icon-192x192.png">
 
-    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Source+Code+Pro:200i,400&display=swap" rel="stylesheet">
+    <!--
+        font-family: 'Suez One', serif;
+        font-family: 'Delius Swash Caps', cursive;
+        font-family: 'Source Code Pro', monospace;
+    -->
+    <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Source+Code+Pro|Suez+One&display=swap" rel="stylesheet">
+
+    <!-- smooth scroll "pollyfil" -->
+    <script defer src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
+
     <link rel="stylesheet" href="./index.css?v=0.0.1">
     <script defer src="./index.js?v=0.0.1"></script>
 </head>
@@ -70,29 +78,38 @@
     <div class="container" id="container">
 
         <header class="header" id="top">
-            <div class="introduction">
+            <section class="introduction">
                 <small>Hi, my name is</small>
                 <h1 class="brand" id="brand">Daniel Camba</h1>
                 <p class="subhead">I make computers draw things 🖼</p>
+                <p class="brief">I'm a software engineer based in Spain, specialized in C++ and 3D technologies, with huge interest in:</p>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=2Z41U9yh7K0">interactive experiences</a></li>
+                    <li><a href="https://youtu.be/oZhsqQzcz48?t=107">3D animation</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=XWu2WUpjcoI&t=14s">rules/behavioral systems</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=0vYF3mW6pjI">painting effects</a></li>
+                </ul>
                 <p class="brief">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, aspernatur? Architecto dicta error, cum voluptatum similique ullam quod excepturi ipsam hic exercitationem atque vel, non eligendi voluptatem dolorum velit esse?
+                    <span class="sep"></span>
+                    Also with experience developing web-apps which give me experience around design, UI/UX, data manipulation, RESTful APIs and databases.
                 </p>
-            </div>
+                <a class="get-in-touch" href="#contact">Get in touch!</a>
+            </section>
         </header>
 
         <main>
             <section class="about" id="about">
-                <h2>About me</h2>
+                <h2 class="alt-font">About me</h2>
                 <wrapper>
                     <div class="about-text">
                         <p>
                             Hello! I am Daniel, a passionate software engineer based in Spain who enjoys building interactive and visual things.
                             <br><br>
-                            I've achieve improvements on companies workflows, <span>reducing one-week tasks to around two-days tasks</span> also, led the migration from a monolithic system to a RESTful based one, <span>saving in 75% code to maintain</span>.
+                            I've achieve improvements on companies workflows, <span class="mark">reducing one-week tasks to around two-days tasks</span> also, led the migration from a monolithic system to a RESTful based one, <span class="mark">saving in 75% code to maintain</span>.
                             <br><br>
-                            At this life-moment I am on a self-improve process of my <span>C++</span> skills, learning about latest standard features, good use of STL and using it all to create cool personal and freelance projects.
+                            At this life-moment I am on a self-improve process of my <span class="mark">C++</span> skills, learning about latest standard features, good use of STL and using it all to create cool personal and freelance projects.
                             <br><br>
-                            <span>On my toolbelt:</span>
+                            <span class="alt-font">On my toolbelt:</span>
                         </p>
 
                         <ul>
@@ -131,7 +148,6 @@
             </section>
             <section class="contact" id="contact">
                 <h2>Contact</h2>
-                <small>Or if you prefer to use your own email client, write to: <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities">hello@cambalamas.com</a></small>
                 <label>Full name</label>
                 <input type="text" autocomplete="name" id="contact_fullname">
                 <label>Email</label>
@@ -141,6 +157,8 @@
                 <label>Message</label>
                 <textarea id="contact_body"></textarea>
                 <a class="button " id="submitContact">Submit</a>
+                <small>Or if you prefer to use your own email client, write to: <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities">hello@cambalamas.com</a></small>
+
             </section>
         </main>
 

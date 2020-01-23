@@ -11,6 +11,7 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
 var scroll = new SmoothScroll('a[href*="#"]', {
     header: '[data-scroll-header]'
 });
+// var scroll = new SmoothScroll('a[href*="#"]');
 // ------------------------------------------------------------------------- //
 // ---------------------------------------------- //
 // --------------------- //
@@ -48,7 +49,9 @@ function currScrollPos() {
         about: document.getElementById('about'),
     };
 
-    let oldYPos = currScrollPos();
+    const yOffset = 10;
+    let oldYPos = yOffset;
+
     const popNav = {
         onClose: _ => {
             setTimeout(() => {
@@ -56,14 +59,18 @@ function currScrollPos() {
                 HTML.logo.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
                 HTML.nav.style.backgroundColor = CSS.rgba('--c-back');
 
-                if (oldYPos > 0) { scroll.animateScroll(oldYPos); }
-
                 setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-menu"></i>' }, 100);
                 setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-hmark'); }, 101);
             }, 400);
 
+
             HTML.container.classList = 'container';
             HTML.popNav.style.top = '-2000px';
+
+            (oldYPos > yOffset)
+                ? scroll.animateScroll(oldYPos)
+                : scroll.animateScroll(yOffset);
+
         },
         onOpen: _ => {
             HTML.logo.style.color = CSS.rgba('--c-back');
@@ -73,7 +80,8 @@ function currScrollPos() {
             setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-back'); }, 101);
 
             oldYPos = currScrollPos();
-            scroll.animateScroll(1);
+            if (oldYPos < yOffset) oldYPos = yOffset;
+            scroll.animateScroll(yOffset);
             setTimeout(() => { HTML.container.classList = 'container-alt'; }, 750);
 
             HTML.popNav.style.top = '0';
@@ -90,8 +98,9 @@ function currScrollPos() {
         if (window.innerWidth > 650 && STATE.menu) { popNav.onClose(); }
     });
 
-    const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = -1; } }
+    const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = 0; } }
     HTML.logo.addEventListener('click', onclicPopNav);
+    // HTML.logo.addEventListener('click', _ => { scroll.animateScroll(0); });
     HTML.goAbout.addEventListener('click', onclicPopNav);
     HTML.goPortfolio.addEventListener('click', onclicPopNav);
     HTML.goContact.addEventListener('click', onclicPopNav);
