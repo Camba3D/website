@@ -84,16 +84,17 @@
                 <p class="subhead">I make computers draw things 🖼</p>
                 <p class="brief">I'm a software engineer based in Spain, specialized in C++ and 3D technologies, with huge interest in:</p>
                 <ul>
-                    <li><a href="https://www.youtube.com/watch?v=2Z41U9yh7K0">interactive experiences</a></li>
-                    <li><a href="https://youtu.be/oZhsqQzcz48?t=107">3D animation</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=XWu2WUpjcoI&t=14s">rules/behavioral systems</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=0vYF3mW6pjI">painting effects</a></li>
+                    <li><a class="link" href="https://www.youtube.com/watch?v=2Z41U9yh7K0">interactive experiences</a></li>
+                    <li><a a class="link" href="https://youtu.be/oZhsqQzcz48?t=107">3D animation</a></li>
+                    <li><a a class="link" href="https://www.youtube.com/watch?v=XWu2WUpjcoI&t=14s">rules/behavioral systems</a></li>
+                    <li><a a class="link" href="https://www.youtube.com/watch?v=0vYF3mW6pjI">painting effects</a></li>
                 </ul>
-                <p class="brief">
+                <p class="brief2">
+                    <br><br>
                     <span class="sep"></span>
                     Also with experience developing web-apps which give me experience around design, UI/UX, data manipulation, RESTful APIs and databases.
                 </p>
-                <a class="get-in-touch" href="#contact">Get in touch!</a>
+                <a class="button" href="#contact">Get in touch!</a>
             </section>
         </header>
 
@@ -116,18 +117,18 @@
                             <li>C++ 17</li>
                             <li>OpenGL 4.x</li>
                             <li>Python 3.x</li>
-                            <li>HTML & CSS</li>
-                            <li>Go (gin-goninc)</li>
-                            <li>JavaScript (ES5+)</li>
-                            <li>3D maths</li>
+                            <li>Unity</li>
                             <li>Multi-threading</li>
                             <li>Memory-management</li>
+                            <li>3D maths</li>
+                            <li>Go (gin-goninc)</li>
+                            <li>HTML + CSS + JS</li>
                         </ul>
 
                         <p>
                             <br><br>
-                            <div class="sep"></div>
-                            Take a look into <a href="/assets/docs/Resume_DanielCamba.pdf" download>my resume</a> and <a href="#contact" id="btnContactAbout">let’s chat</a> about professional opportunities.
+                            <span class="sep"></span>
+                            Take a look into <a a class="link" href="/assets/docs/Resume_DanielCamba.pdf" download>my resume</a> and <a a class="link" href="#contact" id="btnContactAbout">let’s chat</a> about professional opportunities.
                             <br><br>
                         </p>
                     </div>
@@ -148,19 +149,45 @@
             </section>
             <section class="contact" id="contact">
                 <h2>Contact</h2>
-                <label>Full name</label>
-                <input type="text" autocomplete="name" id="contact_fullname">
-                <label>Email</label>
-                <input type="email" autocomplete="email" id="contact_email">
-                <label>Subject</label>
-                <input id="contact_subject">
-                <label>Message</label>
-                <textarea id="contact_body"></textarea>
-                <a class="button " id="submitContact">Submit</a>
-                <small>Or if you prefer to use your own email client, write to: <a href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities">hello@cambalamas.com</a></small>
+                <wrapper>
 
+                    <label>Full name</label>
+                    <input type="text" autocomplete="name" id="contact_fullname">
+                    <label>Email</label>
+                    <input type="email" autocomplete="email" id="contact_email">
+                    <label>Subject</label>
+                    <input id="contact_subject">
+                    <label>Message</label>
+                    <textarea id="contact_body"></textarea>
+                    <small>Or if you prefer to use your own email client, write to: <a class="link" href="mailto:hello@cambalamas.com?subject=Hi Daniel - Let’s chat about professional opportunities">hello@cambalamas.com</a></small>
+                    <div class="contact-alert">
+                        <div class="contact-alert-icon">⚠️</div>
+                        <div class="contact-alert-msg">Conecting to the server...</div>
+                    </div>
+                    <a class="button" id="submitContact">Submit</a>
+
+                </wrapper>
             </section>
         </main>
+
+        <span class="sep"></span>
+        <footer class="footer" id="footer">
+            Designed & Built by Daniel Camba.
+            <section class="personal-links">
+                <a class="personal-link" href="https://www.instagram.com/cambalamas/" target="_blank">
+                    <i class="icon-instagram"></i>
+                </a>
+                <a class="personal-link" href="https://twitter.com/cambalamas" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+                <a class="personal-link" href="https://gitlab.com/users/cambalamas/projects" target="_blank">
+                    <i class="icon-gitlab"></i>
+                </a>
+                <a class="personal-link" href="https://www.github.com/cambalamas/" target="_blank">
+                    <i class="icon-github-circled"></i>
+                </a>
+            </section>
+        </footer>
 
     </div>
 </body>

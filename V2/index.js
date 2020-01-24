@@ -67,9 +67,7 @@ function currScrollPos() {
             HTML.container.classList = 'container';
             HTML.popNav.style.top = '-2000px';
 
-            (oldYPos > yOffset)
-                ? scroll.animateScroll(oldYPos)
-                : scroll.animateScroll(yOffset);
+            if (oldYPos > yOffset) scroll.animateScroll(oldYPos);
 
         },
         onOpen: _ => {
@@ -98,7 +96,7 @@ function currScrollPos() {
         if (window.innerWidth > 650 && STATE.menu) { popNav.onClose(); }
     });
 
-    const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = 0; } }
+    const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = -1; } }
     HTML.logo.addEventListener('click', onclicPopNav);
     // HTML.logo.addEventListener('click', _ => { scroll.animateScroll(0); });
     HTML.goAbout.addEventListener('click', onclicPopNav);
