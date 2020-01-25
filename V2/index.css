@@ -50,14 +50,17 @@ html, body {
 body {
     height: 100%;
     background-image: url(./assets/img/bg.png);
+    background-repeat: repeat;
 }
 
 .link{
     color: rgba(var(--c-hmark)) !important;
     transition: color ease-in-out 0.3s;
 }
-.link:hover {
-    color: rgba(var(--c-hlight)) !important;
+@media (hover: hover) {
+    .link:hover {
+        color: rgba(var(--c-hlight)) !important;
+    }
 }
 
 .alt-font {
@@ -80,22 +83,26 @@ body {
     font-family: 'Suez One', serif;
     letter-spacing: 2px;
 }
-.button:hover{
-    background-color: rgba(var(--c-hlight),.15);
-}
-.button:active {
-    background-color: rgba(var(--c-hlight),.35);
+@media (hover: hover) {
+    .button:hover{
+        background-color: rgba(var(--c-hlight),.15);
+    }
+    .button:active {
+        background-color: rgba(var(--c-hlight),.35);
+    }
 }
 .button-alt {
     color: rgb(var(--c-back));
     background-color: rgba(var(--c-back),.05);
     border-bottom: 3px solid rgba(var(--c-back));
 }
-.button-alt:hover {
-    background-color: rgba(var(--c-back),.15);
-}
-.button-alt:active {
-    background-color: rgba(var(--c-back),.35);
+@media (hover: hover) {
+    .button-alt:hover {
+        background-color: rgba(var(--c-back),.15);
+    }
+    .button-alt:active {
+        background-color: rgba(var(--c-back),.35);
+    }
 }
 
 /* Fixed items */
@@ -131,8 +138,10 @@ body {
         text-shadow ease-out 0.3s,
         color ease-out 0.3s;
 }
-.logo:hover {
-    text-shadow: 0 0 15px rgba(var(--c-hmark),.8);
+@media (hover: hover) {
+    .logo:hover {
+        text-shadow: 0 0 15px rgba(var(--c-hmark),.8);
+    }
 }
 .nav-links {
     display: flex;
@@ -150,13 +159,15 @@ body {
     margin: 1em;
     transition: color ease-out 0.15s;
 }
-.nav-links > a:hover {
-    color: rgb(var(--c-hmark));
+@media (hover: hover) {
+    .nav-links > a:hover {
+        color: rgb(var(--c-hmark));
+    }
+    .nav-links > a:active {
+        color: rgb(var(--c-hlight));
+    }
 }
-.nav-links > a:active {
-    color: rgb(var(--c-hlight));
-}
-.resume, .resume-alt {
+.resume{
     text-align: center;
     margin: 0 .25em;
     cursor: pointer;
@@ -166,96 +177,23 @@ body {
     border-bottom: 1px solid rgba(var(--c-hmark));
     transition: background-color ease-out 0.25s;
 }
-.resume-alt {
-    background-color: rgba(var(--c-back),.15);
-    border-bottom: 3px solid rgba(var(--c-back));
-}
-.resume:hover{
-    background-color: rgba(var(--c-hlight),.15);
-}
-.resume-alt:hover {
-    background-color: rgba(var(--c-back),.35);
-}
-.resume:active {
-    background-color: rgba(var(--c-hlight),.35);
-}
-.resume-alt:active {
-    background-color: rgba(var(--c-back),.55);
+@media (hover: hover) {
+    .resume:hover{
+        background-color: rgba(var(--c-hlight),.15);
+    }
+    .resume:active {
+        background-color: rgba(var(--c-hlight),.35);
+    }
 }
 .resume * {
     color: rgba(var(--c-hmark));
 }
-.resume-alt * {
-    color: rgb(var(--c-back));
-}
-.btn-menu i {
-    color: rgba(var(--c-hmark));
-    transition: color ease-out 0.3s;
-}
-.btn-menu {
-    cursor: pointer;
-    display: none;
-    font-size: 1.5em;
-}
-.pop-nav {
-    z-index: 2;
-
-    left: 0;
-    top: -2000px;
-    position: absolute;
-
-    width: 100%;
-    min-height: 100%;
-    overflow-x: auto;
-
-    font-size: 2.5em;
-    text-align: justify;
-    background-color: rgba(var(--c-hmark));
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    transition:
-        top ease-in-out 0.75s,
-        height cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.75s;
-}
-.pop-nav > wrapper {
-    font-size: 7.5vw;
-}
-.pop-nav > wrapper > a::before {
-    color: rgba(var(--c-back), 1);
-    counter-increment: popnav-counter;
-    content: "0"counter(popnav-counter) ".";
-    padding-right: 1em;
-}
-.pop-nav > wrapper > a {
-    display: block;
-    cursor: pointer;
-    margin: 1.5em 0;
-    padding: .15em .15em;
-    color: rgb(var(--c-front));
-    transition: color ease-in-out 0.2s;
-}
-.pop-nav > wrapper > a:hover{
-    color: rgba(var(--c-back), 1);
-}
-.pop-nav > wrapper > a:active{
-    color: rgba(var(--c-back), .5);
-}
-
 
 /* Non fixed items */
 
 .container{
     margin: 0 15vw;
     padding-top: 10vh;
-}
-.container-alt {
-    position: fixed;
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
 }
 
 .header {
@@ -265,8 +203,8 @@ body {
     justify-content: space-between;
 
     height: 100%;
-    margin-bottom: 10vh;
-    padding: 50px 0px 100px 0;
+    margin-bottom: 35vh;
+    padding-top: 50px;
 }
 .introduction {
     font-size: 4vmax;
@@ -332,8 +270,7 @@ main > section {
 
     height: 100%;
     margin-bottom: 35vh;
-    /* padding: 5px; */
-    padding: 100px 0;
+    padding-top: 100px;
 }
 .avatar-wrapper {
     cursor: pointer;
@@ -364,16 +301,18 @@ main > section {
         background-color ease-in-out 0.5s,
         box-shadow ease-in-out 0.4s;
 }
-.avatar:hover {
-    background-color: rgba(var(--c-hlight));
+@media (hover: hover) {
+    .avatar:hover {
+        background-color: rgba(var(--c-hlight));
 
-    box-shadow:
-        10px -10px 0 0 rgba(var(--c-hlight),.5),
-        20px -20px 0 0 rgba(var(--c-hlight),.25),
-        30px -30px 0 0 rgba(var(--c-hlight),.125),
-        40px -40px 0 0 rgba(var(--c-hlight),.0625),
-        50px -50px 0 0 rgba(var(--c-hlight),.03125),
-        60px -60px 0 0 rgba(var(--c-hlight),.015625);
+        box-shadow:
+            10px -10px 0 0 rgba(var(--c-hlight),.5),
+            20px -20px 0 0 rgba(var(--c-hlight),.25),
+            30px -30px 0 0 rgba(var(--c-hlight),.125),
+            40px -40px 0 0 rgba(var(--c-hlight),.0625),
+            50px -50px 0 0 rgba(var(--c-hlight),.03125),
+            60px -60px 0 0 rgba(var(--c-hlight),.015625);
+    }
 }
 .avatar > img{
     cursor: pointer;
@@ -566,8 +505,10 @@ main > section {
     color: rgba(var(--c-hmark));
     transition: color ease-in-out 0.3s;
 }
-.personal-link *:hover{
-    color: rgba(var(--c-hlight));
+@media (hover: hover) {
+    .personal-link *:hover{
+        color: rgba(var(--c-hlight));
+    }
 }
 
 .sep {
@@ -580,6 +521,9 @@ main > section {
 /* ------------------------------------------------------------------------- */
 /* Media queries */
 /* ------------------------------------------------------------------------- */
+
+@media (hover: hover) {
+}
 
 @media only screen and (max-width: 1100px) {
     .avatar-wrapper {
@@ -610,11 +554,14 @@ main > section {
     }
 }
 @media only screen and (max-width: 650px) {
-    .nav-links{
+    .header, main >section {
+        padding-top: 25px;
+    }
+    .resume {
         display: none;
     }
-    .btn-menu {
-        display: flex;
+    .nav-links > a::before {
+        display: block;
     }
     .brand {
         font-size: 1.1em;

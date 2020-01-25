@@ -17,10 +17,6 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 // --------------------- //
 
 (function () {
-    const yOffset = 10;
-    let oldYPos = yOffset;
-
-    let STATE = { menu: false };
     let CSS = {
         _data: {
             r: getComputedStyle(document.documentElement),
@@ -30,78 +26,10 @@ var scroll = new SmoothScroll('a[href*="#"]', {
         set: (prop, val) => CSS._data.w.setProperty(prop, val),
         rgba: (prop, opacity = 1.0) => `rgba(${CSS.get(prop)},${opacity})`
     };
-    let HTML = {
-        body: document.querySelector('body'),
-        container: document.getElementById('container'),
-        nav: document.getElementById('nav'),
-        logo: document.getElementById('logo'),
-        menu: document.getElementById('btnMenu'),
-        popNav: document.getElementById('popNav'),
-        goAbout: document.getElementById('btnAbout'),
-        goPortfolio: document.getElementById('btnPortfolio'),
-        goContact: document.getElementById('btnContact'),
-        about: document.getElementById('about'),
-        contactFromName: document.getElementById('contactFromName'),
-        contactFrom: document.getElementById('contactFrom'),
-        contactSubject: document.getElementById('contactSubject'),
-        contactMsg: document.getElementById('contactMsg'),
-        contactSubmit: document.getElementById('contactSubmit'),
-    };
 
-    /* POP-NAV logic */
-    const popNav = {
-        onClose: _ => {
-            setTimeout(() => {
-                HTML.logo.style.color = CSS.rgba('--c-hmark');
-                HTML.logo.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
-                HTML.nav.style.backgroundColor = CSS.rgba('--c-back');
-
-                setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-menu"></i>' }, 100);
-                setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-hmark'); }, 101);
-            }, 400);
-
-
-            HTML.container.classList = 'container';
-            HTML.popNav.style.top = '-2000px';
-
-            if (oldYPos > yOffset) scroll.animateScroll(oldYPos);
-
-        },
-        onOpen: _ => {
-            HTML.logo.style.color = CSS.rgba('--c-back');
-            HTML.logo.style.textShadow = '0 0 15px rgba(var(--c-back),.35)';
-            HTML.nav.style.backgroundColor = CSS.rgba('--c-hmark');
-            setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-cancel"></i>' }, 100);
-            setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-back'); }, 101);
-
-            oldYPos = window.pageYOffset || document.documentElement.scrollTop;
-            if (oldYPos < yOffset) oldYPos = yOffset;
-            scroll.animateScroll(yOffset);
-            setTimeout(() => { HTML.container.classList = 'container-alt'; }, 750);
-
-            HTML.popNav.style.top = '0';
-        },
-        toggle: _ => {
-            (!STATE.menu) ? popNav.onOpen() : popNav.onClose();
-            STATE.menu = !STATE.menu;
-        },
-        setEvents: _ => {
-            HTML.menu.addEventListener('click', popNav.toggle);
-            window.addEventListener("resize", _ => {
-                console.log("WIDTH: " + window.innerWidth);
-                if (window.innerWidth > 650 && STATE.menu) { popNav.onClose(); }
-            });
-            const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = -1; } }
-            HTML.logo.addEventListener('click', onclicPopNav);
-            HTML.goAbout.addEventListener('click', onclicPopNav);
-            HTML.goPortfolio.addEventListener('click', onclicPopNav);
-            HTML.goContact.addEventListener('click', onclicPopNav);
-        }
-    }
-    popNav.setEvents();
 
     /* CONTACT logic */
-    HTML.contactSubmit.addEventListener('click', _ => {
+    document.getElementById('contactSubmit').addEventListener('click', _ => {
 
         let timeouts = [];
         const msgAlert = (msg, icon = '⚠️', color = CSS.rgba('--c-hmark', .85)) => {
@@ -115,25 +43,13 @@ var scroll = new SmoothScroll('a[href*="#"]', {
             _alertBlock.style.backgroundColor = color;
             _icon.textContent = icon;
             _msg.textContent = msg;
-
             _contactSubmit.style.opacity = 0;
-            timeouts.push(setTimeout(() => {
-                _alertBlock.style.display = 'grid';
-            }, 300));
-            timeouts.push(setTimeout(() => {
-                _alertBlock.style.opacity = 1;
-                _contactSubmit.style.display = 'none';
-            }, 303));
-            timeouts.push(setTimeout(() => {
-                _alertBlock.style.opacity = 0;
-            }, 3000));
-            timeouts.push(setTimeout(() => {
-                _alertBlock.style.display = 'none';
-                _contactSubmit.style.display = 'inherit';
-            }, 3350));
-            timeouts.push(setTimeout(() => {
-                _contactSubmit.style.opacity = 1;
-            }, 3400));
+
+            timeouts.push(setTimeout(() => { _alertBlock.style.display = 'grid'; }, 300));
+            timeouts.push(setTimeout(() => { _alertBlock.style.opacity = 1; _contactSubmit.style.display = 'none'; }, 303));
+            timeouts.push(setTimeout(() => { _alertBlock.style.opacity = 0; }, 3000));
+            timeouts.push(setTimeout(() => { _alertBlock.style.display = 'none'; _contactSubmit.style.display = 'inherit'; }, 3350));
+            timeouts.push(setTimeout(() => { _contactSubmit.style.opacity = 1; }, 3400));
         };
 
         const fields = [
@@ -166,6 +82,19 @@ var scroll = new SmoothScroll('a[href*="#"]', {
                 msgAlert(status, '😕');
             }
         });
+    });
+
+    window.addEventListener('scroll', _ => {
+        const currScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+
+        const limit = currScrollPos + 30;
+        const sections = ['top', 'about', 'portfolio', 'contact', 'footer'];
+
+        for (const se of sections) {
+            const el = document.getElementById(se);
+            const top = el.getBoundingClientRect().top + currScrollPos;
+            if (('#' + se !== window.location.hash) && top < limit && top + el.scrollHeight > limit) { window.history.pushState({}, "", '#' + se); }
+        }
     });
 
     yall(); // lazyload imgs
