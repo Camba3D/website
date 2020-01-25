@@ -11,19 +11,16 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
 var scroll = new SmoothScroll('a[href*="#"]', {
     header: '[data-scroll-header]'
 });
-// var scroll = new SmoothScroll('a[href*="#"]');
+
 // ------------------------------------------------------------------------- //
 // ---------------------------------------------- //
 // --------------------- //
 
-/**
- * Check the current scroll position using 'window' or 'document' as fallback.
- */
-function currScrollPos() {
-    return window.pageYOffset || document.documentElement.scrollTop;
-}
-
 (function () {
+    const yOffset = 10;
+    let oldYPos = yOffset;
+
+    let STATE = { menu: false };
     let CSS = {
         _data: {
             r: getComputedStyle(document.documentElement),
@@ -32,9 +29,6 @@ function currScrollPos() {
         get: prop => CSS._data.r.getPropertyValue(prop),
         set: (prop, val) => CSS._data.w.setProperty(prop, val),
         rgba: (prop, opacity = 1.0) => `rgba(${CSS.get(prop)},${opacity})`
-    };
-    let STATE = {
-        menu: false
     };
     let HTML = {
         body: document.querySelector('body'),
@@ -47,11 +41,14 @@ function currScrollPos() {
         goPortfolio: document.getElementById('btnPortfolio'),
         goContact: document.getElementById('btnContact'),
         about: document.getElementById('about'),
+        contactFromName: document.getElementById('contactFromName'),
+        contactFrom: document.getElementById('contactFrom'),
+        contactSubject: document.getElementById('contactSubject'),
+        contactMsg: document.getElementById('contactMsg'),
+        contactSubmit: document.getElementById('contactSubmit'),
     };
 
-    const yOffset = 10;
-    let oldYPos = yOffset;
-
+    /* POP-NAV logic */
     const popNav = {
         onClose: _ => {
             setTimeout(() => {
@@ -77,7 +74,7 @@ function currScrollPos() {
             setTimeout(() => { HTML.menu.innerHTML = '<i class="icon-cancel"></i>' }, 100);
             setTimeout(() => { HTML.menu.getElementsByTagName('i')[0].style.color = CSS.rgba('--c-back'); }, 101);
 
-            oldYPos = currScrollPos();
+            oldYPos = window.pageYOffset || document.documentElement.scrollTop;
             if (oldYPos < yOffset) oldYPos = yOffset;
             scroll.animateScroll(yOffset);
             setTimeout(() => { HTML.container.classList = 'container-alt'; }, 750);
@@ -88,23 +85,88 @@ function currScrollPos() {
             (!STATE.menu) ? popNav.onOpen() : popNav.onClose();
             STATE.menu = !STATE.menu;
         },
+        setEvents: _ => {
+            HTML.menu.addEventListener('click', popNav.toggle);
+            window.addEventListener("resize", _ => {
+                console.log("WIDTH: " + window.innerWidth);
+                if (window.innerWidth > 650 && STATE.menu) { popNav.onClose(); }
+            });
+            const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = -1; } }
+            HTML.logo.addEventListener('click', onclicPopNav);
+            HTML.goAbout.addEventListener('click', onclicPopNav);
+            HTML.goPortfolio.addEventListener('click', onclicPopNav);
+            HTML.goContact.addEventListener('click', onclicPopNav);
+        }
     }
-    HTML.menu.addEventListener('click', popNav.toggle);
+    popNav.setEvents();
 
-    window.addEventListener("resize", _ => {
-        console.log("WIDTH: " + window.innerWidth);
-        if (window.innerWidth > 650 && STATE.menu) { popNav.onClose(); }
+    /* CONTACT logic */
+    HTML.contactSubmit.addEventListener('click', _ => {
+
+        let timeouts = [];
+        const msgAlert = (msg, icon = '⚠️', color = CSS.rgba('--c-hmark', .85)) => {
+            for (const timeout of timeouts) { clearTimeout(timeout); }
+
+            const _contactSubmit = document.getElementById('contactSubmit');
+            const _alertBlock = document.getElementsByClassName('contact-alert')[0];
+            const _icon = document.getElementsByClassName('contact-alert-icon')[0];
+            const _msg = document.getElementsByClassName('contact-alert-msg')[0];
+
+            _alertBlock.style.backgroundColor = color;
+            _icon.textContent = icon;
+            _msg.textContent = msg;
+
+            _contactSubmit.style.opacity = 0;
+            timeouts.push(setTimeout(() => {
+                _alertBlock.style.display = 'grid';
+            }, 300));
+            timeouts.push(setTimeout(() => {
+                _alertBlock.style.opacity = 1;
+                _contactSubmit.style.display = 'none';
+            }, 303));
+            timeouts.push(setTimeout(() => {
+                _alertBlock.style.opacity = 0;
+            }, 3000));
+            timeouts.push(setTimeout(() => {
+                _alertBlock.style.display = 'none';
+                _contactSubmit.style.display = 'inherit';
+            }, 3350));
+            timeouts.push(setTimeout(() => {
+                _contactSubmit.style.opacity = 1;
+            }, 3400));
+        };
+
+        const fields = [
+            document.getElementById('contactFromName'),
+            document.getElementById('contactFrom'),
+            document.getElementById('contactSubject'),
+            document.getElementById('contactMsg')
+        ];
+        if (fields.some(el => el.value === '')) {
+            msgAlert('Must not be empty inputs.', '⚠️', '#d36f4e');
+            return;
+        }
+
+        msgAlert('Connecting to the server.', '⏳', '#4e6fd3');
+        const timeoutSMTP = setTimeout(_ => { msgAlert('Time out. Sorry, try again later.', '⌛️', '#4e6fa3'); }, 3500);
+
+        Email.send({
+            SecureToken: '02c23bcd-40c2-48f9-9453-fd3a6a1a0cfd',
+            To: 'hello@cambalamas.com',
+            FromName: fields[0].value,
+            From: fields[1].value,
+            Subject: fields[2].value,
+            Body: fields[3].value,
+        }).then(status => {
+            clearTimeout(timeoutSMTP);
+            if (status === 'OK') {
+                msgAlert('Message sent successfully.', '✅', '#428542');
+                fields.forEach(el => { el.value = ''; })
+            } else {
+                msgAlert(status, '😕');
+            }
+        });
     });
-
-    const onclicPopNav = _ => { if (STATE.menu) { popNav.onClose(); oldYPos = -1; } }
-    HTML.logo.addEventListener('click', onclicPopNav);
-    // HTML.logo.addEventListener('click', _ => { scroll.animateScroll(0); });
-    HTML.goAbout.addEventListener('click', onclicPopNav);
-    HTML.goPortfolio.addEventListener('click', onclicPopNav);
-    HTML.goContact.addEventListener('click', onclicPopNav);
-
-
-
 
     yall(); // lazyload imgs
 })();
