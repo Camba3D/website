@@ -229,7 +229,7 @@ body {
 
     height: 100%;
     margin-bottom: 35vh;
-    padding-top: 50px;
+    padding-top: 85px;
 }
 .introduction {
     font-size: 4vmax;
@@ -295,7 +295,7 @@ main > section {
 
     height: 100%;
     margin-bottom: 35vh;
-    padding-top: 100px;
+    padding-top: 85px;
 }
 .avatar-wrapper {
     cursor: pointer;
@@ -380,9 +380,9 @@ main > section {
     color: rgba(var(--c-hlight),.75);
 }
 
-.portfolio {
+/* .portfolio {
     padding: 25px 0;
-}
+} */
 .slides {
     display: grid;
     column-gap: 4em;
@@ -588,9 +588,9 @@ main > section {
     }
 }
 @media only screen and (max-width: 650px) {
-    .header, main >section {
+    /* .header, main >section {
         padding-top: 25px;
-    }
+    } */
     .resume {
         display: none;
     }
