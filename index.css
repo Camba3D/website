@@ -199,6 +199,7 @@ body {
     border-radius: 5px;
     padding: .15em .45em;
     border: 1px solid transparent;
+    background-color: rgba(var(--c-hlight),.05);
     border-bottom: 1px solid rgba(var(--c-hmark));
     transition: background-color ease-out 0.25s;
 }
