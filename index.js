@@ -32,11 +32,6 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
         });
     }
 
-    const topEl = document.querySelector('#top');
-    const goTop = _ => {
-        (scroll) ? scroll.animateScroll(topEl) : topEl.scrollIntoView();
-    }
-
     /* Dynamic 'vh' unit for mobiles */
     const vh = _ => {
         let vh = window.innerHeight * 0.01;
@@ -50,31 +45,24 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
     const introText = document.getElementById('introText');
     setTimeout(() => {
         introText.style.textShadow = '0 0 25px rgba(var(--c-hmark),.85)';
-        goTop();
     }, 90);
     setTimeout(() => {
         introText.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
-        goTop();
     }, 690);
     setTimeout(() => {
         introText.style.textShadow = '0 0 25px rgba(var(--c-hmark),.85)';
-        goTop();
     }, 1290);
     setTimeout(() => {
         introText.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
-        goTop();
     }, 1890);
     setTimeout(() => {
         introText.style.transform = 'scale(0,0)';
-        goTop();
     }, 2690);
     setTimeout(() => {
         intro.style.opacity = '0';
-        goTop();
     }, 3290);
     setTimeout(() => {
         intro.style.display = 'none';
-        goTop();
     }, 4090);
 
     /* CONTACT logic */
