@@ -217,6 +217,47 @@ body {
 
 /* Non fixed items */
 
+.notfound {
+    /* margin-top: 50px;
+    padding-top: 75px;
+    background: #0f05;
+    height: 100vh;
+    text-align: center;
+    */
+
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.notfound-img {
+    width: 20vmax;
+}
+.notfound-img-wrapper {
+    text-align: center;
+    margin: 75px 0;
+}
+.notfound-btn {
+    padding: 1em 2.5em;
+    /* line-height: 2em; */
+}
+.notfound-btn span {
+    color:  rgba(var(--c-hmark));
+    margin-right: 1em;
+    font-size: 1.25em;
+}
+.notfoud-text span {
+    color:  rgba(var(--c-hmark));
+    font-size: 1.4em;
+}
+.notfoud-text {
+    font-style: italic;
+    color:  rgba(var(--c-hlight));
+    font-size: 1.2em;
+}
+
 .container{
     margin: 0 15vw;
     padding-top: 10vh;
