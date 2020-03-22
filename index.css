@@ -377,6 +377,9 @@ body {
     margin-top: 50px !important;
     padding: 25px 0;
     background: rgba(var(--c-hlight),.025);
+    display: flex;
+    align-items: center;
+    flex-direction: column
 }
 .credits {
     font-size: .9rem;
@@ -385,7 +388,6 @@ body {
 }
 .footer-links {
     cursor: pointer;
-    /* margin-top: .75em; */
     font-size: 1.5em;
 }
 
