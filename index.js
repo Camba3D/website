@@ -12,7 +12,6 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
 // --------------------- //
 
 (function () {
-    document.documentElement.style.setProperty('--currWidth', `${window.innerWidth}`);
 
     /* CSS data improved access */
     let CSS = {
@@ -106,9 +105,3 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
     /* Cross-browser lazy load imgs */
     yall();
 })();
-
-
-window.addEventListener('resize', _ => {
-    console.log('width: ' + window.innerWidth);
-    document.documentElement.style.setProperty('--currWidth', `${window.innerWidth}`);
-});
