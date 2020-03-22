@@ -12,6 +12,7 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
 // --------------------- //
 
 (function () {
+    document.documentElement.style.setProperty('--currWidth', `${window.innerWidth}`);
 
     /* CSS data improved access */
     let CSS = {
@@ -31,39 +32,6 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
             easing: 'easeInOutQuint',
         });
     }
-
-    /* Dynamic 'vh' unit for mobiles */
-    const vh = _ => {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    vh();
-    window.addEventListener('resize', vh);
-
-    /*  Intro animation and remove */
-    const intro = document.getElementById('intro');
-    const introText = document.getElementById('introText');
-    setTimeout(() => {
-        introText.style.textShadow = '0 0 25px rgba(var(--c-hmark),.85)';
-    }, 90);
-    setTimeout(() => {
-        introText.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
-    }, 690);
-    setTimeout(() => {
-        introText.style.textShadow = '0 0 25px rgba(var(--c-hmark),.85)';
-    }, 1290);
-    setTimeout(() => {
-        introText.style.textShadow = '0 0 15px rgba(var(--c-hmark),.35)';
-    }, 1890);
-    setTimeout(() => {
-        introText.style.transform = 'scale(0,0)';
-    }, 2690);
-    setTimeout(() => {
-        intro.style.opacity = '0';
-    }, 3290);
-    setTimeout(() => {
-        intro.style.display = 'none';
-    }, 4090);
 
     /* CONTACT logic */
     document.getElementById('contactSubmit').addEventListener('click', _ => {
@@ -126,7 +94,7 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
         const currScrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
         const limit = currScrollPos + 30;
-        const sections = ['top', 'about', 'portfolio', 'contact', 'footer'];
+        const sections = ['top', 'portfolio', 'about', 'contact', 'footer'];
 
         for (const se of sections) {
             const el = document.getElementById(se);
@@ -138,3 +106,9 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
     /* Cross-browser lazy load imgs */
     yall();
 })();
+
+
+window.addEventListener('resize', _ => {
+    console.log('width: ' + window.innerWidth);
+    document.documentElement.style.setProperty('--currWidth', `${window.innerWidth}`);
+});

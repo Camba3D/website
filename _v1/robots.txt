@@ -1,3 +1,0 @@
-Sitemap: https://cambalamas.com/sitemap.xml
-User-agent: *
-Disallow:
