@@ -30,12 +30,10 @@ a{
     color: rgb(var(--c-front));
     font-family: 'Source Code Pro', monospace;
 }
-html, body {
-    background-color: rgb(var(--c-back));
-}
-body {
-    height: 100%;
+html,body {
+    /* height: 100%; */
     background-repeat: repeat;
+    background-color: rgb(var(--c-back));
     background-image: url(./assets/img/bg.png);
 }
 
@@ -45,7 +43,7 @@ body {
 
 .sep {
     display: block;
-    border-top: 1px solid rgba(var(--c-front),.1);
+    border-top: 2px solid rgba(var(--c-front),.1);
 }
 
 .link{
@@ -86,7 +84,8 @@ body {
 /* ------------------------------------------------------------------------- */
 
 .notfound {
-    height: 100vh;
+    margin: 50px 0;
+    /* height: 100%; */
     display: flex;
     text-align: center;
     align-items: center;
@@ -94,7 +93,7 @@ body {
     flex-direction: column;
 }
 .notfound-img {
-    width: 35vmax;
+    width: 65vmin;
 }
 .notfound-img-wrapper {
     text-align: center;
@@ -106,7 +105,7 @@ body {
 }
 .notfoud-text span {
     color:  rgba(var(--c-front));
-    font-size: 2em;
+    font-size: 9vmin;
 }
 .notfound-btn {
     padding: 1em 2.5em;
@@ -141,7 +140,8 @@ body {
     margin-bottom: 2em;
 }
 .header-buttons2 {
-    margin: 1em 0;
+    padding: 1em 0;
+    background-color: rgba(var(--c-back),.65);
 }
 .header-buttons2 *:first-child::before {
     content: "";
