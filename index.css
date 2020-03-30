@@ -41,7 +41,13 @@ html,body {
 /* ReUsable class */
 /* ------------------------------------------------------------------------- */
 
-.sep {
+sepv:before {
+    content: "/";
+    font-weight: bolder;
+    font-size: large;
+    color: rgba(var(--c-front))
+}
+seph {
     display: block;
     border-top: 2px solid rgba(var(--c-front),.1);
 }
@@ -134,23 +140,17 @@ html,body {
     color:  rgba(var(--c-front),.6);
 }
 .header-buttons1 {
-    cursor: pointer;
-    font-size: 1.5em;
-    margin-top: 1em;
-    margin-bottom: 2em;
+    font-size: 1.75em;
+    margin-top: .75em;
+    margin-bottom: 1.25em;
+}
+.header-buttons1 * {
+    padding: 0;
+    margin: 0;
 }
 .header-buttons2 {
     padding: 1em 0;
     background-color: rgba(var(--c-back),.65);
-}
-.header-buttons2 *:first-child::before {
-    content: "";
-}
-.header-buttons2 *::before {
-    content: "/ ";
-    font-weight: bolder;
-    font-size: large;
-    color: rgba(var(--c-front))
 }
 .header-buttons2 * {
     text-transform: uppercase;
@@ -387,7 +387,6 @@ html,body {
     opacity: .5;
 }
 .footer-links {
-    cursor: pointer;
     font-size: 1.5em;
 }
 
