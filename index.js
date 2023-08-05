@@ -36,7 +36,7 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
     document.getElementById('contactSubmit').addEventListener('click', _ => {
 
         let timeouts = [];
-        const msgAlert = (msg, icon = '⚠️', color = CSS.rgba('--c-hmark', .85)) => {
+        const msgAlert = (msg, icon = '⚠️', color = CSS.rgba('--c-accent', .85)) => {
             for (const timeout of timeouts) { clearTimeout(timeout); }
 
             const _contactSubmit = document.getElementById('contactSubmit');
@@ -44,7 +44,7 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
             const _icon = document.getElementsByClassName('contact-alert-icon')[0];
             const _msg = document.getElementsByClassName('contact-alert-msg')[0];
 
-            _alertBlock.style.backgroundColor = color;
+            //_alertBlock.style.backgroundColor = color;
             _icon.textContent = icon;
             _msg.textContent = msg;
             _contactSubmit.style.opacity = 0;
@@ -90,10 +90,10 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
 
     /* Change url section on scroll */
     window.addEventListener('scroll', _ => {
-        const currScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        const currScrollPos = window.scrollY || document.documentElement.scrollTop;
 
         const limit = currScrollPos + 30;
-        const sections = ['top', 'portfolio', 'about', 'contact', 'footer'];
+        const sections = ['top', 'portfolio', 'contact', 'footer'];
 
         for (const se of sections) {
             const el = document.getElementById(se);
@@ -101,6 +101,9 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
             if (('#' + se !== window.location.hash) && top < limit && top + el.scrollHeight > limit) { window.history.pushState({}, "", '#' + se); }
         }
     });
+
+    /* Video playback speeds */
+    // document.querySelector('video').playbackRate = 0.5;
 
     /* Cross-browser lazy load imgs */
     yall();
