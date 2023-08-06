@@ -22,12 +22,14 @@ a {
 /* ------------------------------------------------------------------------- */
 
 :root {
-    --gap-panels: 0px;
-    --gap-slides: 0px;
+    --gap: 4px;
     --radius: 5px;
     --c-bg: 33, 33, 33;
     --c-fg: 230, 210, 190;
     --c-accent: 255, 150, 0;
+
+    --c-links: var(--c-fg);
+    --c-links-hover: var(--c-accent);
 }
 
 * {
@@ -37,20 +39,18 @@ a {
 
 html,
 body {
-    background-repeat: repeat;
     background-color: rgb(var(--c-bg));
+    /* background-repeat: repeat; */
     /* background-image: url(./assets/img/bg.png); */
 }
 
 /* ------------------------------------------------------------------------- */
-/* ReUsable class */
+/* ReUsable classes */
 /* ------------------------------------------------------------------------- */
 
 sepv:before {
     content: "/";
-    font-weight: bolder;
-    font-size: large;
-    color: rgba(var(--c-fg))
+    color: rgba(var(--c-fg), .5)
 }
 
 seph {
@@ -59,14 +59,13 @@ seph {
 }
 
 .link {
-    color: rgba(var(--c-accent)) !important;
+    /* font-weight: bold; */
+    color: rgba(var(--c-links));
     transition: color ease-in-out 0.3s;
 }
 
-@media (hover: hover) {
-    .link:hover {
-        color: rgba(var(--c-fg)) !important;
-    }
+.link:hover {
+    color: rgba(var(--c-links-hover));
 }
 
 .button {
@@ -82,14 +81,10 @@ seph {
     display: inline-block;
     text-align: center;
     transition: background-color ease-in-out 0.3s;
-    /* font-family: 'Suez One', serif; */
-    /* letter-spacing: 2px; */
 }
 
-@media (hover: hover) {
-    .button:hover {
-        background-color: rgba(var(--c-fg), .15);
-    }
+.button:hover {
+    background-color: rgba(var(--c-fg), .15);
 }
 
 .video-cover {
@@ -143,43 +138,26 @@ seph {
 }
 
 /* ------------------------------------------------------------------------- */
-/* Header */
+/* Navbar */
 /* ------------------------------------------------------------------------- */
 
-.header {
+.nav {
+    display: grid;
+    --gap-nav: calc(var(--gap) * 2);
+    column-gap: var(--gap-nav);
+    row-gap: var(--gap-nav);
+    grid-template-columns: 1fr 1fr 1fr;
+
     text-align: center;
-    display: none;
+
+    font-weight: bold;
+    font-size: x-large;
+
+    line-height: 5vh;
 }
 
-.brand {
-    color: rgba(var(--c-fg));
-    font-size: 5em;
-}
-
-.subhead {
-    font-size: 1.75em;
-    margin-top: .5em;
-    color: rgba(var(--c-fg), .6);
-}
-
-.header-buttons1 {
-    font-size: 1.75em;
-    margin-top: .75em;
-    margin-bottom: 1.25em;
-}
-
-.header-buttons1 * {
-    padding: 0;
-    margin: 0;
-}
-
-.header-buttons2 {
-    padding: 1em 0;
-    background-color: rgba(var(--c-bg), .65);
-}
-
-.header-buttons2 * {
-    text-transform: uppercase;
+.nav>* {
+    background-color: rgba(var(--c-fg), .1);
 }
 
 /* ------------------------------------------------------------------------- */
@@ -188,10 +166,11 @@ seph {
 
 .container {
     display: grid;
-    column-gap: var(--gap-panels);
-    row-gap: var(--gap-panels);
-    grid-template-columns: 4fr 6fr;
-    height: 100vh;
+    column-gap: var(--gap);
+    row-gap: var(--gap);
+    grid-template-columns: 5fr 5fr;
+
+    height: 95vh;
     overflow-y: hidden;
 }
 
@@ -220,16 +199,14 @@ seph {
 
 .slides {
     display: grid;
-    column-gap: var(--gap-slides);
-    row-gap: var(--gap-slides);
+    column-gap: var(--gap);
+    row-gap: var(--gap);
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 .slide {
-    display: grid;
-    align-items: center;
-    justify-items: center;
     position: relative;
+    display: grid;
 }
 
 .slide img {
@@ -239,15 +216,14 @@ seph {
 }
 
 .slide>.slide-hover {
+    position: absolute;
     display: grid;
     align-content: center;
     justify-items: center;
-    position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(var(--c-bg), .95);
+    background-color: rgba(var(--c-bg), .9);
+
     opacity: 0;
     transition: opacity ease-in-out 0.3s;
 }
@@ -282,12 +258,12 @@ seph {
 }
 
 .slide-links a * {
-    color: rgba(var(--c-accent));
+    color: rgba(var(--c-links));
     transition: color ease-in-out 0.3s;
 }
 
 .slide-links a *:hover {
-    color: rgba(var(--c-fg));
+    color: rgba(var(--c-links-hover));
 }
 
 /* ------------------------------------------------------------------------- */
@@ -438,14 +414,6 @@ seph {
 
     .slides {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .brand {
-        font-size: 2.5em;
-    }
-
-    .subhead {
-        font-size: 1.25em;
     }
 }
 
