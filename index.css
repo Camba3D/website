@@ -41,7 +41,6 @@ a {
 html,
 body {
     background-color: rgb(var(--c-bg));
-    overflow-y: hidden;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -141,7 +140,7 @@ seph {
     align-items: center;
     justify-content: space-evenly;
 
-    line-height: 5vh;
+    height: 5vh;
 }
 
 .nav-brand {
@@ -173,6 +172,10 @@ seph {
 /* ------------------------------------------------------------------------- */
 
 .container {
+    height: 95vh;
+}
+
+.container-wrapper {
     display: grid;
     column-gap: var(--gap);
     row-gap: var(--gap);
@@ -195,10 +198,6 @@ seph {
     display: none;
 }
 
-.right>section {
-    /* margin-bottom: 5%; */
-}
-
 /* ------------------------------------------------------------------------- */
 /* Portfolio */
 /* ------------------------------------------------------------------------- */
@@ -211,8 +210,8 @@ seph {
 }
 
 .slide {
-    position: relative;
     display: grid;
+    position: relative;
 }
 
 .slide img {
@@ -221,9 +220,10 @@ seph {
     object-fit: cover;
 }
 
-.slide>.slide-hover {
-    position: absolute;
+.slide .slide-hover {
     display: grid;
+    position: absolute;
+
     align-content: center;
     justify-items: center;
     width: 100%;
@@ -234,12 +234,12 @@ seph {
     transition: opacity ease-in-out 0.3s;
 }
 
-.slide:hover>.slide-hover {
+.slide:hover .slide-hover {
     opacity: 100%;
 }
 
 .slide-title {
-    font-size: 1em;
+    font-size: 1vh;
     font-weight: bolder;
     text-transform: uppercase;
     color: rgba(var(--c-fg), 1);
@@ -248,19 +248,12 @@ seph {
 }
 
 .slide-desc {
-    font-size: .7rem;
+    font-size: 1.3vh;
     text-align: left;
     text-transform: initial;
     color: rgba(var(--c-fg), .75);
 
-    display: none;
-
-    margin: 1em 4em;
-    margin-bottom: 0;
-}
-
-.slide-links {
-    font-size: 1.75em;
+    margin: 4%;
 }
 
 .slide-links a * {
@@ -388,17 +381,11 @@ seph {
 /* Media queries */
 /* ------------------------------------------------------------------------- */
 
-@media only screen and (max-width: 825px) {
-
-    .container {
-        grid-template-columns: 1fr;
-    }
+@media only screen and (max-width: 960px) {
 
     .nav {
         flex-direction: column;
-        flex-wrap: wrap;
-        line-height: 2.5vh;
-        padding: 5% 0;
+        height: 15vh;
     }
 
     .nav-brand-capital {
@@ -414,8 +401,45 @@ seph {
         text-transform: capitalize;
     }
 
+    .container {
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        height: 85vh;
+    }
+
+    .container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container-wrapper {
+        height: auto;
+        grid-template-columns: 1fr;
+    }
+
     .slides {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .slides {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    * {
+        font-size: 1.2vh;
+    }
+
+    sepv:before {
+        content: "\a";
+        white-space: pre;
+    }
+
+    .nav-brand {
+        flex-direction: column;
     }
 }
 
