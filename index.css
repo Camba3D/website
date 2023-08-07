@@ -22,7 +22,7 @@ a {
 /* ------------------------------------------------------------------------- */
 
 :root {
-    --gap: 4px;
+    --gap: .2vh;
     --radius: 5px;
     --c-bg: 33, 33, 33;
     --c-fg: 230, 210, 190;
@@ -34,14 +34,14 @@ a {
 
 * {
     color: rgb(var(--c-fg));
+    font-size: 1.8vh;
     font-family: 'Source Code Pro', monospace;
 }
 
 html,
 body {
     background-color: rgb(var(--c-bg));
-    /* background-repeat: repeat; */
-    /* background-image: url(./assets/img/bg.png); */
+    overflow-y: hidden;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -49,8 +49,8 @@ body {
 /* ------------------------------------------------------------------------- */
 
 sepv:before {
-    content: "/";
-    color: rgba(var(--c-fg), .5)
+    content: "|";
+    color: rgba(var(--c-fg), .2)
 }
 
 seph {
@@ -77,7 +77,7 @@ seph {
     border: 1px solid transparent;
     border-bottom: 2px solid rgba(var(--c-accent));
     background-color: rgba(var(--c-fg), .05);
-    padding: .75em 1em;
+    padding: .5em;
     display: inline-block;
     text-align: center;
     transition: background-color ease-in-out 0.3s;
@@ -98,8 +98,7 @@ seph {
 /* ------------------------------------------------------------------------- */
 
 .notfound {
-    margin: 50px 0;
-    /* height: 100%; */
+    height: 100vh;
     display: flex;
     text-align: center;
     align-items: center;
@@ -108,33 +107,27 @@ seph {
 }
 
 .notfound-img {
-    width: 65vmin;
+    /* width: 200px; */
+    width: 35vmin;
+    margin: 5% 0;
 }
 
-.notfound-img-wrapper {
-    text-align: center;
-    margin: 75px 0;
-}
-
-.notfoud-text {
+.notfound-text {
     color: rgba(var(--c-fg), .4);
-    font-size: 1.5em;
+    font-size: 2vmin;
 }
 
-.notfoud-text span {
-    color: rgba(var(--c-fg));
-    font-size: 9vmin;
+.notfound-text span {
+    font-size: 6vmin;
 }
 
 .notfound-btn {
-    padding: 1em 2.5em;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .notfound-btn span {
     color: rgba(var(--c-accent));
     margin-right: 1em;
-    font-size: 1.25em;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -142,22 +135,37 @@ seph {
 /* ------------------------------------------------------------------------- */
 
 .nav {
-    display: grid;
-    --gap-nav: calc(var(--gap) * 2);
-    column-gap: var(--gap-nav);
-    row-gap: var(--gap-nav);
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
 
     text-align: center;
-
-    font-weight: bold;
-    font-size: x-large;
+    align-items: center;
+    justify-content: space-evenly;
 
     line-height: 5vh;
 }
 
-.nav>* {
-    background-color: rgba(var(--c-fg), .1);
+.nav-brand {
+    display: flex;
+}
+
+.nav-brand>.sep {
+    margin: 0 5%;
+}
+
+.nav-brand-capital {
+    font-family: 'Dancing Script';
+    font-size: 3vh;
+    color: rgb(var(--c-accent));
+}
+
+.nav-brand-text {
+    font-family: 'Source Code Pro', monospace;
+    opacity: .5;
+    color: rgb(var(--c-accent));
+}
+
+.nav-links {
+    text-transform: uppercase;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -168,14 +176,12 @@ seph {
     display: grid;
     column-gap: var(--gap);
     row-gap: var(--gap);
-    grid-template-columns: 5fr 5fr;
+    grid-template-columns: 4fr 6fr;
 
     height: 95vh;
-    overflow-y: hidden;
 }
 
 .left {
-    /* background-color: rebeccapurple; */
     overflow-y: hidden;
 }
 
@@ -377,39 +383,37 @@ seph {
     transition: opacity ease-in 0.2s background-color ease-in-out 0.3s;
 }
 
-/* ------------------------------------------------------------------------- */
-/* Footer */
-/* ------------------------------------------------------------------------- */
-
-.footer {
-    font-size: 1rem;
-    margin-top: 50px !important;
-    padding: 25px 0;
-    background: rgba(var(--c-fg), .1);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: var(--radius);
-}
-
-.credits {
-    font-size: .9rem;
-    margin: 15px 0;
-    opacity: .5;
-}
-
-.footer-links {
-    font-size: 1.5em;
-}
-
 
 /* ------------------------------------------------------------------------- */
 /* Media queries */
 /* ------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 825px) {
+    * {
+        font-size: 1.3vh;
+    }
+
     .container {
         grid-template-columns: 1fr;
+    }
+
+    .nav {
+        flex-direction: column;
+        flex-wrap: wrap;
+        line-height: 2.5vh;
+    }
+
+    .nav-brand-capital {
+        font-size: xx-large;
+    }
+
+    .nav-brand-text {
+        font-size: x-large;
+    }
+
+    .nav-links {
+        font-size: small;
+        text-transform: capitalize;
     }
 
     .slides {
@@ -567,5 +571,38 @@ seph {
     font-weight: 400;
     font-display: swap;
     src: url(https://fonts.gstatic.com/s/sourcecodepro/v22/HI_diYsKILxRpg3hIP6sJ7fM7PqPMcMnZFqUwX28DMyQtMlrTA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Dancing Script (Handwrite) Font */
+/* ------------------------------------------------------------------------- */
+/* vietnamese */
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B1i03Rep8ltA.woff2) format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B1i03ROp8ltA.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Dancing Script';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/dancingscript/v24/If2cXTr6YS-zF4S-kcSWSVi_sxjsohD9F50Ruu7B1i03Sup8.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
