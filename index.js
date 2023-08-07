@@ -13,17 +13,6 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
 
 (function () {
 
-    /* CSS data improved access */
-    let CSS = {
-        _data: {
-            r: getComputedStyle(document.documentElement),
-            w: document.documentElement.style
-        },
-        get: prop => CSS._data.r.getPropertyValue(prop),
-        set: (prop, val) => CSS._data.w.setProperty(prop, val),
-        rgba: (prop, opacity = 1.0) => `rgba(${CSS.get(prop)},${opacity})`
-    };
-
     /* Setup smooth-scroll polyfill - disabled on chrome - */
     let scroll = null;
     if (!(/chrom(e|ium)/.test(navigator.userAgent.toLowerCase()))) {
@@ -31,62 +20,6 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
             easing: 'easeInOutQuint',
         });
     }
-
-    /* CONTACT logic */
-    document.getElementById('contactSubmit').addEventListener('click', _ => {
-
-        let timeouts = [];
-        const msgAlert = (msg, icon = '⚠️', color = CSS.rgba('--c-accent', .85)) => {
-            for (const timeout of timeouts) { clearTimeout(timeout); }
-
-            const _contactSubmit = document.getElementById('contactSubmit');
-            const _alertBlock = document.getElementsByClassName('contact-alert')[0];
-            const _icon = document.getElementsByClassName('contact-alert-icon')[0];
-            const _msg = document.getElementsByClassName('contact-alert-msg')[0];
-
-            //_alertBlock.style.backgroundColor = color;
-            _icon.textContent = icon;
-            _msg.textContent = msg;
-            _contactSubmit.style.opacity = 0;
-
-            timeouts.push(setTimeout(() => { _alertBlock.style.display = 'grid'; }, 300));
-            timeouts.push(setTimeout(() => { _alertBlock.style.opacity = 1; _contactSubmit.style.display = 'none'; }, 303));
-            timeouts.push(setTimeout(() => { _alertBlock.style.opacity = 0; }, 3000));
-            timeouts.push(setTimeout(() => { _alertBlock.style.display = 'none'; _contactSubmit.style.display = 'inherit'; }, 3350));
-            timeouts.push(setTimeout(() => { _contactSubmit.style.opacity = 1; }, 3400));
-        };
-
-        const fields = [
-            document.getElementById('contactFromName'),
-            document.getElementById('contactFrom'),
-            document.getElementById('contactSubject'),
-            document.getElementById('contactMsg')
-        ];
-        if (fields.some(el => el.value === '')) {
-            msgAlert('Must not be empty inputs.', '⚠️', '#d36f4e');
-            return;
-        }
-
-        msgAlert('Connecting to the server.', '⏳', '#4e6fd3');
-        const timeoutSMTP = setTimeout(_ => { msgAlert('Time out. Sorry, try again later.', '⌛️', '#4e6fa3'); }, 3500);
-
-        Email.send({
-            SecureToken: '02c23bcd-40c2-48f9-9453-fd3a6a1a0cfd',
-            To: 'hello@cambalamas.com',
-            FromName: fields[0].value,
-            From: fields[1].value,
-            Subject: fields[2].value,
-            Body: fields[3].value,
-        }).then(status => {
-            clearTimeout(timeoutSMTP);
-            if (status === 'OK') {
-                msgAlert('Message sent successfully.', '✅', '#428542');
-                fields.forEach(el => { el.value = ''; })
-            } else {
-                msgAlert(status, '😕');
-            }
-        });
-    });
 
     /* Change url section on scroll */
     window.addEventListener('scroll', _ => {
@@ -101,9 +34,6 @@ var Email = { send: function (a) { return new Promise(function (n, e) { a.nocach
             if (('#' + se !== window.location.hash) && top < limit && top + el.scrollHeight > limit) { window.history.pushState({}, "", '#' + se); }
         }
     });
-
-    /* Video playback speeds */
-    // document.querySelector('video').playbackRate = 0.5;
 
     /* Cross-browser lazy load imgs */
     yall();
