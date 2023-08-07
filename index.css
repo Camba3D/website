@@ -398,14 +398,15 @@ seph {
         flex-direction: column;
         flex-wrap: wrap;
         line-height: 2.5vh;
+        padding: 5% 0;
     }
 
     .nav-brand-capital {
-        font-size: xx-large;
+        font-size: x-large;
     }
 
     .nav-brand-text {
-        font-size: x-large;
+        font-size: large;
     }
 
     .nav-links {
