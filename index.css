@@ -389,9 +389,6 @@ seph {
 /* ------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 825px) {
-    * {
-        font-size: 1.3vh;
-    }
 
     .container {
         grid-template-columns: 1fr;
