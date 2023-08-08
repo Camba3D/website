@@ -33,8 +33,8 @@ a {
 }
 
 * {
-    color: rgb(var(--c-fg));
     font-size: 1.8vh;
+    color: rgb(var(--c-fg));
     font-family: 'Source Code Pro', monospace;
 }
 
@@ -159,11 +159,12 @@ a[href]:hover {
 
 .nav-brand-text {
     font-family: 'Source Code Pro', monospace;
-    opacity: .5;
+    opacity: .7;
     color: rgb(var(--c-accent));
 }
 
 .nav-links {
+    display: none;
     text-transform: uppercase;
 }
 
@@ -180,15 +181,30 @@ a[href]:hover {
     column-gap: var(--gap);
     row-gap: var(--gap);
     grid-template-columns: 4fr 6fr;
+    grid-template-rows: 3fr 7fr;
 
     height: 95vh;
 }
 
+.container-wrapper .hello {
+    grid-column: 1;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    background-color: rgba(var(--c-fg), .2)
+}
+
 .left {
+    grid-column: 1;
     overflow-y: hidden;
 }
 
 .right {
+    grid-column: 2;
+    grid-row: 1 / 3;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -211,6 +227,8 @@ a[href]:hover {
 
 .slide {
     display: grid;
+    text-align: center;
+
     position: relative;
 }
 
@@ -239,7 +257,7 @@ a[href]:hover {
 }
 
 .slide-title {
-    font-size: 4vh;
+    font-size: 3vh;
     font-weight: bolder;
     text-transform: uppercase;
     color: rgba(var(--c-fg), 1);
@@ -265,6 +283,17 @@ a[href]:hover {
 /* ------------------------------------------------------------------------- */
 /* Media queries */
 /* ------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 1500px) {
+    .slide-title {
+        font-size: 1.5vh;
+    }
+
+    .slide-links {
+        scale: 1.5;
+    }
+}
+
 
 @media only screen and (max-width: 960px) {
 
