@@ -22,14 +22,15 @@ a {
 /* ------------------------------------------------------------------------- */
 
 :root {
-    --gap: .2vh;
-    --radius: 5px;
-    --c-bg: 33, 33, 33;
+    --gap: 1vh;
+    --radius: 10px;
     --c-fg: 230, 210, 190;
-    --c-accent: 255, 150, 0;
+    --c-accent: 255, 150, 90;
 
-    --c-links: var(--c-fg);
-    --c-links-hover: var(--c-accent);
+    --c-bg: 66, 66, 66;
+
+    --c-links: var(--c-accent);
+    --c-links-hover: var(--c-fg);
 }
 
 * {
@@ -41,6 +42,7 @@ a {
 html,
 body {
     background-color: rgb(var(--c-bg));
+    overflow-y: hidden;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -60,7 +62,7 @@ seph {
 
 a[href] {
     color: rgba(var(--c-links));
-    transition: color ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
 }
 
 a[href]:hover {
@@ -138,13 +140,16 @@ a[href]:hover {
 
     text-align: center;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
-    height: 5vh;
+    height: auto;
+
+    --nav-item-margin: 2% 5%
 }
 
 .nav-brand {
     display: flex;
+    margin: var(--nav-item-margin);
 }
 
 .nav-brand>.sep {
@@ -153,14 +158,16 @@ a[href]:hover {
 
 .nav-brand-capital {
     font-family: 'Dancing Script';
-    font-size: 3vh;
-    color: rgb(var(--c-accent));
+    color: rgb(var(--c-fg));
+
+    font-size: 2.9rem;
 }
 
 .nav-brand-text {
-    font-family: 'Source Code Pro', monospace;
     opacity: .7;
-    color: rgb(var(--c-accent));
+    color: rgb(var(--c-fg));
+
+    font-size: 1.9rem;
 }
 
 .nav-links {
@@ -168,12 +175,27 @@ a[href]:hover {
     text-transform: uppercase;
 }
 
+.nav-social {
+    display: grid;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 4%;
+    margin: var(--nav-item-margin);
+    transform: translate(-8%);
+}
+
+.nav-social>a {
+    font-size: 1.5rem;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Container */
 /* ------------------------------------------------------------------------- */
 
 .container {
-    height: 95vh;
+    height: 85vh;
 }
 
 .container-wrapper {
@@ -181,12 +203,13 @@ a[href]:hover {
     column-gap: var(--gap);
     row-gap: var(--gap);
     grid-template-columns: 4fr 6fr;
-    grid-template-rows: 3fr 7fr;
+    /* grid-template-rows: 3fr 7fr; */
 
-    height: 95vh;
+    padding: 0 var(--gap);
+    height: 85vh;
 }
 
-.container-wrapper .hello {
+.hello-panel {
     grid-column: 1;
 
     display: flex;
@@ -197,20 +220,20 @@ a[href]:hover {
     background-color: rgba(var(--c-fg), .2)
 }
 
-.left {
-    grid-column: 1;
+.left-panel {
+    /* grid-column: 1; */
     overflow-y: hidden;
 }
 
-.right {
-    grid-column: 2;
-    grid-row: 1 / 3;
+.right-panel {
+    /* grid-column: 2; */
+    /* grid-row: 1 / 3; */
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.right::-webkit-scrollbar {
+.right-panel::-webkit-scrollbar {
     display: none;
 }
 
@@ -232,6 +255,11 @@ a[href]:hover {
     position: relative;
 }
 
+.slide>* {
+    /* border: 2px solid rgb(var(--c-fg), .4); */
+    /* border-radius: var(--radius); */
+}
+
 .slide img {
     width: 100%;
     height: 100%;
@@ -246,14 +274,15 @@ a[href]:hover {
     justify-items: center;
     width: 100%;
     height: 100%;
-    background-color: rgba(var(--c-bg), .9);
+
+    background-color: rgba(var(--c-bg), .8);
 
     opacity: 0;
     transition: opacity ease-in-out 0.3s;
 }
 
 .slide:hover .slide-hover {
-    opacity: 100%;
+    opacity: 1;
 }
 
 .slide-title {
@@ -285,12 +314,13 @@ a[href]:hover {
 /* ------------------------------------------------------------------------- */
 
 @media only screen and (max-width: 1500px) {
+
     .slide-title {
-        font-size: 1.5vh;
+        font-size: 1.8vh;
     }
 
     .slide-links {
-        scale: 1.5;
+        scale: 1.6;
     }
 }
 
@@ -299,20 +329,7 @@ a[href]:hover {
 
     .nav {
         flex-direction: column;
-        height: 15vh;
-    }
-
-    .nav-brand-capital {
-        font-size: x-large;
-    }
-
-    .nav-brand-text {
-        font-size: large;
-    }
-
-    .nav-links {
-        font-size: small;
-        text-transform: capitalize;
+        margin: 5%;
     }
 
     .container {
