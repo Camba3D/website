@@ -180,7 +180,7 @@ a[href]:hover {
     align-items: center;
     align-content: space-between;
     justify-content: space-between;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     column-gap: 4%;
     margin: var(--nav-item-margin);
     transform: translate(-8%);
