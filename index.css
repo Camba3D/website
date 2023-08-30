@@ -27,7 +27,7 @@ a {
     --c-fg: 230, 210, 190;
     --c-accent: 255, 150, 90;
 
-    --c-bg: 66, 66, 66;
+    --c-bg: 44, 44, 44;
 
     --c-links: var(--c-accent);
     --c-links-hover: var(--c-fg);
